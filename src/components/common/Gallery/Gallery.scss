@@ -1,0 +1,12 @@
+.slider {
+  &-overflow-container {
+    overflow-x: hidden;
+    height: 508px;
+  }
+  &-container {
+    display: flex;
+    column-gap: 10px;
+    transform: translate3d(0px, 0px, 0px);
+    transition: transform 0.5s;
+  }
+}
