@@ -1,3 +1,9 @@
+@import '@/scss/_colors.scss';
+
 :root {
-  background-color: black;
+  background-color: $primary-color;
+}
+
+body {
+  margin: 0;
 }

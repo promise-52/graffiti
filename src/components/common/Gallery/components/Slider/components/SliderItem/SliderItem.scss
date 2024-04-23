@@ -6,13 +6,14 @@
     //transition: margin 0.5s;
   } 
 
-  height: 200px;
+  height: 183px;
   background-color: red;
   position: relative;
   transition: bottom 0.2s;
   bottom: 0;
 
   img {
+    min-width: 100%;
     max-width: 100%;
     height: 100%;
     object-fit: cover;

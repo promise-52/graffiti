@@ -1,3 +1,13 @@
+@font-face {
+  font-family: 'Heathergreen';
+  src: url(../assets/fonts/Heathergreen.otf) format('opentype');
+}
+
 .text-white {
   color: white;
 }
+
+.text-heathergreen {
+  font-family: 'Heathergreen', Arial, Helvetica, sans-serif;
+}
+
