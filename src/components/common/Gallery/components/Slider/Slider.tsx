@@ -16,11 +16,20 @@ export default function Slider() {
   const [activeSlideIndex, setActiveSlideIndex] = useState<number>(0)
   const slides = useRef<Element[]>([])
 
-  const slidesPerPage = 7
-  const centerSlideWidth = width / 3
+  const getCenterSliderWidth = () => {
+    if(width >= 1800) {
+      return 742
+    } else if(width >= 1500) {
+      return 600
+    } else if(width >= 1000) {
+      return 400
+    } 
+    return 300
+  }
+
+  const slidesPerPage = 3
+  const centerSlideWidth = getCenterSliderWidth()
   const slideWidth = ((width - centerSlideWidth - 10) / (slidesPerPage - 1)) - 10
-
-
 
   const sliderInit = () => {
     const s = document.getElementsByClassName('slider-item');
@@ -31,12 +40,13 @@ export default function Slider() {
     }
 
     slides.current = [...s]
-    const index = Math.floor(s.length / 2);
+    const index = Math.ceil(slidesPerPage / 2);
     setActiveSlideIndex(index);
 
     (s[index] as any).style.minWidth = `${centerSlideWidth}px`
     s[index].classList.add('slider-item-active')
-    containerStyle.transform = `translate3d(-${slideWidth + 5}px, 0px, 0px)`
+    console.log(index)
+    containerStyle.transform = `translate3d(-${slideWidth  + 5}px, 0px, 0px)`
   }
 
   const changeSlide = (index: number) => {
