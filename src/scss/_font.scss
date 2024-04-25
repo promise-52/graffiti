@@ -3,11 +3,24 @@
   src: url(../assets/fonts/Heathergreen.otf) format('opentype');
 }
 
+@font-face {
+  font-family: 'PP Telegraph';
+  src: url(../assets/fonts/PPTelegraf-Regular.otf) format('opentype');
+}
+
 .text-white {
   color: white;
 }
 
+.line-height-middle {
+  height: 19.2px;
+}
+
 .text-heathergreen {
   font-family: 'Heathergreen', Arial, Helvetica, sans-serif;
+}
+
+.text-pptelegraph {
+  font-family: 'PP Telegraph', Arial, Helvetica, sans-serif;
 }
 

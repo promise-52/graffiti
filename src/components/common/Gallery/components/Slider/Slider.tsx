@@ -17,6 +17,7 @@ export default function Slider({ data }: SliderProps) {
   const { width } = useContainerDimensions(sliderContainerRef)
   const [activeSlideIndex, setActiveSlideIndex] = useState<number>(0)
   const slides = useRef<Element[]>([])
+  const galleryTitle = useRef<HTMLDivElement>(null)
 
   const getCenterSliderWidth = () => {
     if (width >= 1800) {
@@ -83,6 +84,12 @@ export default function Slider({ data }: SliderProps) {
     sliderInit()
   }, [width])
 
+  useEffect(() => {
+    galleryTitle.current?.classList.remove('gallery-names-container')
+    void galleryTitle.current?.offsetWidth
+    galleryTitle.current?.classList.add('gallery-names-container');
+  }, [activeSlideIndex])
+
   console.log(Math.ceil(slidesPerPage / 2))
   return (
     <>
@@ -90,8 +97,31 @@ export default function Slider({ data }: SliderProps) {
         <FontAwesomeIcon className='slider-arrows-item' icon={faArrowLeft} onClick={(e) => goBack(activeSlideIndex)} />
         <FontAwesomeIcon className='slider-arrows-item' icon={faArrowRight} onClick={(e) => goForward(activeSlideIndex)} />
       </div>
-      <div className="gallery-names-container text-white text-heathergreen" style={{ left: ((slideWidth+10) * Math.floor(slidesPerPage/2)+15)}}>
-        Камчатка // 2022
+      <div className="gallery-names-anim gallery-names-container text-white text-pptelegraph line-height-middle" 
+        ref={galleryTitle}
+        style={{ left: ((slideWidth + 10) * Math.floor(slidesPerPage / 2) + 15) }}
+      >
+        <div className='gallery-names-location'>
+        {data[activeSlideIndex].location}
+        </div>
+        <div className='gallery-names-title'>
+          {data[activeSlideIndex].name}
+        </div>
+        <div className='gallery-names-authors-container '>
+          {
+            data[activeSlideIndex].authors.map((author) => (
+              <div className='gallery-names-authors-item line-height-middle'>
+                <div>
+                  /
+                </div>
+                <div>
+                  {author }
+                </div>
+              </div>
+              )
+            )
+          }
+        </div>
       </div>
       <div className='slider-overflow-container' ref={sliderContainerRef}>
         <div className='slider-container text-white' style={{ transform: 'translate3d(0px, 0px, 0px)' }}>

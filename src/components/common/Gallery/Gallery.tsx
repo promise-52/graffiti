@@ -22,67 +22,67 @@ export default function Gallery() {
       imagesUrls: [img, img2, img2, img2, img2, img2]
     },
     {
-      location: 'Камчатка, Россия // 2022',
+      location: 'Камчатка 2 , Россия // 2022',
       name: 'therewas_fiaskoband',
       authors: ['jozi_one', 'kingmaiz', 'kabyone'],
       imagesUrls: [img2, img, img, img2, img2, img2]
     },
     {
-      location: 'Камчатка, Россия // 2022',
+      location: 'Камчатка 3, Россия // 2022',
       name: 'therewas_fiaskoband',
       authors: ['jozi_one', 'kingmaiz', 'kabyone'],
       imagesUrls: [img, img2, img2, img2, img2, img2]
     },
     {
-      location: 'Камчатка, Россия // 2022',
+      location: 'Камчатка 4, Россия // 2022',
       name: 'therewas_fiaskoband',
       authors: ['jozi_one', 'kingmaiz', 'kabyone'],
       imagesUrls: [img, img2, img2, img2, img2, img2]
     },
     {
-      location: 'Камчатка, Россия // 2022',
+      location: 'Камчатка 5, Россия // 2022',
       name: 'therewas_fiaskoband',
       authors: ['jozi_one', 'kingmaiz', 'kabyone'],
       imagesUrls: [img2, img, img, img2, img2, img2]
     },
     {
-      location: 'Камчатка, Россия // 2022',
+      location: 'Камчатка 6, Россия // 2022',
       name: 'therewas_fiaskoband',
       authors: ['jozi_one', 'kingmaiz', 'kabyone'],
       imagesUrls: [img, img2, img2, img2, img2, img2]
     },
     {
-      location: 'Камчатка, Россия // 2022',
+      location: 'Камчатка 7, Россия // 2022',
       name: 'therewas_fiaskoband',
       authors: ['jozi_one', 'kingmaiz', 'kabyone'],
       imagesUrls: [img, img2, img2, img2, img2, img2]
     },
     {
-      location: 'Камчатка, Россия // 2022',
+      location: 'Камчатка 8, Россия // 2022',
       name: 'therewas_fiaskoband',
       authors: ['jozi_one', 'kingmaiz', 'kabyone'],
       imagesUrls: [img, img2, img2, img2, img2, img2]
     },
     {
-      location: 'Камчатка, Россия // 2022',
+      location: 'Камчатка 9, Россия // 2022',
       name: 'therewas_fiaskoband',
       authors: ['jozi_one', 'kingmaiz', 'kabyone'],
       imagesUrls: [img, img2, img2, img2, img2, img2]
     },
     {
-      location: 'Камчатка, Россия // 2022',
+      location: 'Камчатка 10, Россия // 2022',
       name: 'therewas_fiaskoband',
       authors: ['jozi_one', 'kingmaiz', 'kabyone'],
       imagesUrls: [img, img2, img2, img2, img2, img2]
     },
     {
-      location: 'Камчатка, Россия // 2022',
+      location: 'Камчатка 11, Россия // 2022',
       name: 'therewas_fiaskoband',
       authors: ['jozi_one', 'kingmaiz', 'kabyone'],
       imagesUrls: [img, img2, img2, img2, img2, img2]
     },
     {
-      location: 'Камчатка, Россия // 2022',
+      location: 'Камчатка 12, Россия // 2022',
       name: 'therewas_fiaskoband',
       authors: ['jozi_one', 'kingmaiz', 'kabyone'],
       imagesUrls: [img, img2, img2, img2, img2, img2]
