@@ -6,7 +6,7 @@ import img2 from '@/assets/img/test2.jpg'
 
 export interface Slide {
   location: string
-  author: string
+  name: string
   authors: string[]
   imagesUrls: string[]
 }
@@ -17,18 +17,85 @@ export default function Gallery() {
   const slides: Slide[] = [
     {
       location: 'Камчатка, Россия // 2022',
-      author: 'therewas_fiaskoband',
+      name: 'therewas_fiaskoband',
       authors: ['jozi_one', 'kingmaiz', 'kabyone'],
-      imagesUrls: [img, img2]
+      imagesUrls: [img, img2, img2, img2, img2, img2]
+    },
+    {
+      location: 'Камчатка, Россия // 2022',
+      name: 'therewas_fiaskoband',
+      authors: ['jozi_one', 'kingmaiz', 'kabyone'],
+      imagesUrls: [img2, img, img, img2, img2, img2]
+    },
+    {
+      location: 'Камчатка, Россия // 2022',
+      name: 'therewas_fiaskoband',
+      authors: ['jozi_one', 'kingmaiz', 'kabyone'],
+      imagesUrls: [img, img2, img2, img2, img2, img2]
+    },
+    {
+      location: 'Камчатка, Россия // 2022',
+      name: 'therewas_fiaskoband',
+      authors: ['jozi_one', 'kingmaiz', 'kabyone'],
+      imagesUrls: [img, img2, img2, img2, img2, img2]
+    },
+    {
+      location: 'Камчатка, Россия // 2022',
+      name: 'therewas_fiaskoband',
+      authors: ['jozi_one', 'kingmaiz', 'kabyone'],
+      imagesUrls: [img2, img, img, img2, img2, img2]
+    },
+    {
+      location: 'Камчатка, Россия // 2022',
+      name: 'therewas_fiaskoband',
+      authors: ['jozi_one', 'kingmaiz', 'kabyone'],
+      imagesUrls: [img, img2, img2, img2, img2, img2]
+    },
+    {
+      location: 'Камчатка, Россия // 2022',
+      name: 'therewas_fiaskoband',
+      authors: ['jozi_one', 'kingmaiz', 'kabyone'],
+      imagesUrls: [img, img2, img2, img2, img2, img2]
+    },
+    {
+      location: 'Камчатка, Россия // 2022',
+      name: 'therewas_fiaskoband',
+      authors: ['jozi_one', 'kingmaiz', 'kabyone'],
+      imagesUrls: [img, img2, img2, img2, img2, img2]
+    },
+    {
+      location: 'Камчатка, Россия // 2022',
+      name: 'therewas_fiaskoband',
+      authors: ['jozi_one', 'kingmaiz', 'kabyone'],
+      imagesUrls: [img, img2, img2, img2, img2, img2]
+    },
+    {
+      location: 'Камчатка, Россия // 2022',
+      name: 'therewas_fiaskoband',
+      authors: ['jozi_one', 'kingmaiz', 'kabyone'],
+      imagesUrls: [img, img2, img2, img2, img2, img2]
+    },
+    {
+      location: 'Камчатка, Россия // 2022',
+      name: 'therewas_fiaskoband',
+      authors: ['jozi_one', 'kingmaiz', 'kabyone'],
+      imagesUrls: [img, img2, img2, img2, img2, img2]
+    },
+    {
+      location: 'Камчатка, Россия // 2022',
+      name: 'therewas_fiaskoband',
+      authors: ['jozi_one', 'kingmaiz', 'kabyone'],
+      imagesUrls: [img, img2, img2, img2, img2, img2]
     }
   ]
 
   return <>
     <div className="gallery-container">
-      <Slider />
+      <Slider data={slides}/>
       <div className="text-heathergreen" id="geography-title">
         Наша <br />география
       </div>
+      
     </div>
   </>
 }

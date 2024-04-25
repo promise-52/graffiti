@@ -1,9 +1,9 @@
 .slider {
   &-overflow-container {
     overflow-x: hidden;
-    height: 508px;
-    max-width: 1920px;
-    margin: auto;
+    overflow-y: hidden;
+    max-width: calc(1920px - 25px);
+    margin: 0 10px;
   }
 
   &-container {

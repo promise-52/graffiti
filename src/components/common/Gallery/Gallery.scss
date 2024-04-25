@@ -2,8 +2,15 @@
 
 .gallery {
   &-container {
-    padding-top: 20vh;
+    padding-top: 175px;//20vh;
     position: relative;
+  }
+  &-names {
+    &-container {
+      top: 20px;
+      left: 0;
+      position: absolute;
+    }
   }
 }
 
@@ -13,4 +20,5 @@
   font-size: 80px;
   line-height: 64px;
   color: $primary-color;
+  margin-top: 21px;
 }
