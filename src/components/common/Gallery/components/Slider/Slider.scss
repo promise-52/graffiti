@@ -1,3 +1,7 @@
+@import '@/scss/_colors.scss';
+
+$slider-top-padding: 15vh;
+
 .slider {
   &-overflow-container {
     overflow-x: hidden;
@@ -22,16 +26,61 @@
       right: 10px;
       top: 10px;
       z-index: 10;
+      font-size: 24px;
+      top: $slider-top-padding;
     }
     &-item {
       cursor: pointer;
       user-select: none;
       border: 1px solid;
-      font-size: 1.5rem;
+      font-size: 16px;
       font-weight: 100;
       color: white;
       border-radius: 50% 50% 50% 50%;
       padding: 1rem;
     }
+  }
+
+  &-names {
+    &-anim {
+      top: 820px;
+    }
+    &-container {
+      top: calc($slider-top-padding + 625px);
+      position: absolute;
+      font-weight: 800;
+      transition: top 0.3s ;
+    }
+    
+    &-location {
+      margin-bottom: 3px;
+    }
+    &-title {
+      margin-bottom: 10px;
+    }
+    &-authors {
+      &-container {
+        
+      }
+      &-item {
+        display: flex;
+        gap: 50px;
+      }
+    }
+  } 
+  &-show-more {
+    position: absolute;
+    top: calc($slider-top-padding + 625px);;
+    right: 15px;  
+    &-rectangle {
+      background-color: $primary-color;
+      height: 10px;
+    }
+  }
+  &-counter {
+    position: absolute;
+    display: flex;
+    margin-left: 15px;
+    top: calc($slider-top-padding + 5px + 625px);
   }
 }

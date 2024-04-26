@@ -1,15 +1,26 @@
 .slider-item {
+  &-container {
+    transition: bottom 0.2s;
+    position: relative;
+    &:hover:not(.slider-item-container-active) {
+      bottom: 20px;
+    }
+    bottom: 0;
+  }
+
+  &-index {
+    font-weight: 800;
+    margin-bottom: 15px;
+  }
+  
+
   &-active {
     height: 587px;
     margin-top: 0px;
-    background-color: blue;
     //transition: margin 0.5s;
   } 
 
-  height: 183px;
-  background-color: red;
-  position: relative;
-  transition: bottom 0.2s;
+  height: 183px;  
   bottom: 0;
 
   img {
@@ -19,9 +30,9 @@
     object-fit: cover;
   }
 
-  &:hover:not(.slider-item-active) {
-    bottom: 20px;
-  }
+  // &:hover:not(.slider-item-active) {
+  //   bottom: 20px;
+  // }
 
   &-favicons {
     &-container {

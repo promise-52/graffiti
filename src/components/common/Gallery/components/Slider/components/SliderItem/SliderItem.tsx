@@ -19,19 +19,24 @@ export default function SliderItem({ style, imgSrc, isActive, index, onClick, sl
   }
 
   return <>
-    <div className='slider-item' style={style}>
-      {isActive &&
-        <div className='slider-item-favicons-container text-white'>
-          {
-            slide.imagesUrls.map((src, index) => (
-              <div className={`slider-item-favicons-item ${ index === currentImageIndex ? 'slider-item-favicons-item-active' : '' }`} key={index} onClick={() => onItemClick(index)}>
-                <img src={src} className='slider-item-favicons-img' />
-              </div>
-            ))
-          }
-        </div>
-      }
-      <img className='slider-item-main-image' src={imgSrc[currentImageIndex]} onClick={() => onClick && onClick(index)}></img>
+    <div className='slider-item-container'>
+      <div className={`slider-item-index text-pptelegraph ${ isActive ? '' : 'primary-opacity'}`}>
+        {`${index < 10 ? '0' : ''}${index}`}
+      </div>
+      <div className='slider-item' style={style}>
+        {isActive &&
+          <div className='slider-item-favicons-container text-white'>
+            {
+              slide.imagesUrls.map((src, index) => (
+                <div className={`slider-item-favicons-item ${index === currentImageIndex ? 'slider-item-favicons-item-active' : ''}`} key={index} onClick={() => onItemClick(index)}>
+                  <img src={src} className='slider-item-favicons-img' />
+                </div>
+              ))
+            }
+          </div>
+        }
+        <img className='slider-item-main-image' src={imgSrc[currentImageIndex]} onClick={() => onClick && onClick(index)}></img>
+      </div>
     </div>
   </>
 }

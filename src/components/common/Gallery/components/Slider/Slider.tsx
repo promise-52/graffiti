@@ -7,6 +7,7 @@ import { useContainerDimensions } from '@/hooks/container-dimenstion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { Slide } from '../../Gallery';
+import arrowRight from '@/assets/img/Arrow 2.svg'
 
 interface SliderProps {
   data: Slide[]
@@ -21,25 +22,25 @@ export default function Slider({ data }: SliderProps) {
 
   const getCenterSliderWidth = () => {
     if (width >= 1800) {
-      return 742
+      return [742, 7]
     } else if (width >= 1500) {
-      return 600
+      return [600, 5]
     } else if (width >= 1000) {
-      return 400
+      return [400, 5]
     }
-    return 300
+    return [300, 3]
   }
 
-  const slidesPerPage = 7
-  const centerSlideWidth = getCenterSliderWidth()
-  const slideWidth = ((width - centerSlideWidth - 10) / (slidesPerPage - 1)) - 10
-
+  const [centerSlideWidth, slidesPerPage] = width ? getCenterSliderWidth() : [0,0]
+  const slideWidth = width ? ((width - centerSlideWidth - 10) / (slidesPerPage > 2 ?(slidesPerPage - 1) : 1)) - 10 : 0
+  console.log('slideWidth',slideWidth)
   const sliderInit = () => {
     const s = document.getElementsByClassName('slider-item');
     const containerStyle = (document.getElementsByClassName('slider-container')[0] as any).style as CSSStyleDeclaration
     const oldActiveSlide = document.getElementsByClassName('slider-item-active')[0]
     if (oldActiveSlide) {
       oldActiveSlide.classList.remove('slider-item-active')
+      oldActiveSlide.parentElement?.classList.remove('slider-item-container-active')
     }
 
     slides.current = [...s]
@@ -48,7 +49,7 @@ export default function Slider({ data }: SliderProps) {
 
     (s[index] as any).style.minWidth = `${centerSlideWidth}px`
     s[index].classList.add('slider-item-active')
-    console.log(index)
+    s[index].parentElement?.classList.add('slider-item-container-active')
     containerStyle.transform = `translate3d(-${slideWidth + 5}px, 0px, 0px)`
   }
 
@@ -70,6 +71,9 @@ export default function Slider({ data }: SliderProps) {
     (slides.current[index] as any).style.minWidth = `${centerSlideWidth}px`;
     slides.current[index - direction].classList.remove('slider-item-active')
     slides.current[index].classList.add('slider-item-active')
+
+    slides.current[index - direction].parentElement?.classList.remove('slider-item-container-active')
+    slides.current[index].parentElement?.classList.add('slider-item-container-active')
   }
 
   const goBack = (index: number) => {
@@ -85,9 +89,9 @@ export default function Slider({ data }: SliderProps) {
   }, [width])
 
   useEffect(() => {
-    galleryTitle.current?.classList.remove('gallery-names-container')
+    galleryTitle.current?.classList.remove('slider-names-container')
     void galleryTitle.current?.offsetWidth
-    galleryTitle.current?.classList.add('gallery-names-container');
+    galleryTitle.current?.classList.add('slider-names-container');
   }, [activeSlideIndex])
 
   console.log(Math.ceil(slidesPerPage / 2))
@@ -97,21 +101,37 @@ export default function Slider({ data }: SliderProps) {
         <FontAwesomeIcon className='slider-arrows-item' icon={faArrowLeft} onClick={(e) => goBack(activeSlideIndex)} />
         <FontAwesomeIcon className='slider-arrows-item' icon={faArrowRight} onClick={(e) => goForward(activeSlideIndex)} />
       </div>
-      <div className="gallery-names-anim gallery-names-container text-white text-pptelegraph line-height-middle" 
+      <div className='slider-show-more text-pptelegraph text-white weight-800'>
+        <div>
+          БОЛЬШЕ РАБОТ
+        </div>
+        <div className='slider-show-more-rectangle'>
+        </div>
+      </div>
+      <div className='slider-counter text-pptelegraph text-white weight-800'>
+        <div className='primary-opacity'>
+          {activeSlideIndex+1}
+        </div>
+        /
+        <div>
+          {data.length}
+        </div>
+      </div>
+      <div className="slider-names-anim slider-names-container text-white text-pptelegraph line-height-middle" 
         ref={galleryTitle}
         style={{ left: ((slideWidth + 10) * Math.floor(slidesPerPage / 2) + 15) }}
       >
-        <div className='gallery-names-location'>
+        <div className='slider-names-location'>
         {data[activeSlideIndex].location}
         </div>
-        <div className='gallery-names-title'>
+        <div className='slider-names-title primary-opacity'>
           {data[activeSlideIndex].name}
         </div>
-        <div className='gallery-names-authors-container '>
+        <div className='slider-names-authors-container '>
           {
             data[activeSlideIndex].authors.map((author) => (
-              <div className='gallery-names-authors-item line-height-middle'>
-                <div>
+              <div className='slider-names-authors-item line-height-middle'>
+                <div className='primary-opacity'>
                   /
                 </div>
                 <div>

@@ -90,12 +90,15 @@ export default function Gallery() {
   ]
 
   return <>
+    <div className="gallery-title text-heathergreen">
+      ПОРТФОЛИО
+    </div>
     <div className="gallery-container">
-      <Slider data={slides}/>
+      <Slider data={slides} />
       <div className="text-heathergreen" id="geography-title">
         Наша <br />география
       </div>
-      
+
     </div>
   </>
 }
