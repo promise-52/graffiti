@@ -3,6 +3,7 @@ import Slider from "./components/Slider/Slider";
 import './Gallery.scss'
 import img from '@/assets/img/test.jpg'
 import img2 from '@/assets/img/test2.jpg'
+import GalleryModal from "./components/GalleryModal/GalleryModal";
 
 export interface Slide {
   location: string
@@ -98,7 +99,7 @@ export default function Gallery() {
       <div className="text-heathergreen" id="geography-title">
         Наша <br />география
       </div>
-
     </div>
+    <GalleryModal />
   </>
 }
