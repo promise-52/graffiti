@@ -1,7 +1,7 @@
 // Import Swiper React components
 import './Slider.scss'
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import SliderItem from './components/SliderItem/SliderItem';
 import { useContainerDimensions } from '@/hooks/container-dimenstion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -20,19 +20,32 @@ export default function Slider({ data }: SliderProps) {
   const slides = useRef<Element[]>([])
   const galleryTitle = useRef<HTMLDivElement>(null)
 
+  const sliderGap = useMemo(() => {
+    if(width > 600) {
+      return 10
+    } else {
+      return 5
+    }
+  }, [width])
+  
   const getCenterSliderWidth = () => {
-    if (width >= 1800) {
+    if (width >= 1700) {
       return [742, 7]
     } else if (width >= 1500) {
       return [600, 5]
     } else if (width >= 1000) {
       return [400, 5]
     }
-    return [300, 3]
+    else if(width <= 640) {
+      return [100, 5]
+    }
+    return [width/5, 5]
   }
 
+  
+
   const [centerSlideWidth, slidesPerPage] = width ? getCenterSliderWidth() : [0,0]
-  const slideWidth = width ? ((width - centerSlideWidth - 10) / (slidesPerPage > 2 ?(slidesPerPage - 1) : 1)) - 10 : 0
+  const slideWidth = width ? ((width - centerSlideWidth - sliderGap) / (slidesPerPage > 2 ? (slidesPerPage - 1) : 1)) - sliderGap : 0
   console.log('slideWidth',slideWidth)
   const sliderInit = () => {
     const s = document.getElementsByClassName('slider-item');
@@ -50,7 +63,7 @@ export default function Slider({ data }: SliderProps) {
     (s[index] as any).style.minWidth = `${centerSlideWidth}px`
     s[index].classList.add('slider-item-active')
     s[index].parentElement?.classList.add('slider-item-container-active')
-    containerStyle.transform = `translate3d(-${slideWidth + 5}px, 0px, 0px)`
+    containerStyle.transform = `translate3d(-${slideWidth + sliderGap/2}px, 0px, 0px)`
   }
 
   const changeSlide = (index: number) => {
@@ -63,7 +76,7 @@ export default function Slider({ data }: SliderProps) {
     const direction = index - activeSlideIndex
     const elementStyle = (document.getElementsByClassName('slider-container')[0] as any).style as CSSStyleDeclaration
 
-    const px = Number(elementStyle.transform.match(/translate3d\((-?\d+(?:\.\d+)?px)/)![1].replace('px', '')) - direction * slideWidth - direction * 10
+    const px = Number(elementStyle.transform.match(/translate3d\((-?\d+(?:\.\d+)?px)/)![1].replace('px', '')) - direction * slideWidth - direction * sliderGap
     elementStyle.transform = elementStyle.transform.replace(/(-?\d+(?:\.\d+)?px)/, `${px.toString()}px`)
     setActiveSlideIndex(index);
 
@@ -86,6 +99,7 @@ export default function Slider({ data }: SliderProps) {
 
   useEffect(() => {
     sliderInit()
+    console.log(width)
   }, [width])
 
   useEffect(() => {
@@ -101,13 +115,7 @@ export default function Slider({ data }: SliderProps) {
         <FontAwesomeIcon className='slider-arrows-item' icon={faArrowLeft} onClick={(e) => goBack(activeSlideIndex)} />
         <FontAwesomeIcon className='slider-arrows-item' icon={faArrowRight} onClick={(e) => goForward(activeSlideIndex)} />
       </div>
-      <div className='slider-show-more text-pptelegraph text-white weight-800'>
-        <div>
-          БОЛЬШЕ РАБОТ
-        </div>
-        <div className='slider-show-more-rectangle'>
-        </div>
-      </div>
+      
       <div className='slider-counter text-pptelegraph text-white weight-800'>
         <div className='primary-opacity'>
           {activeSlideIndex+1}
@@ -119,7 +127,7 @@ export default function Slider({ data }: SliderProps) {
       </div>
       <div className="slider-names-anim slider-names-container text-white text-pptelegraph line-height-middle" 
         ref={galleryTitle}
-        style={{ left: ((slideWidth + 10) * Math.floor(slidesPerPage / 2) + 15) }}
+        style={{ left: ((slideWidth + sliderGap) * Math.floor(slidesPerPage / 2) + sliderGap + sliderGap/2) }}
       >
         <div className='slider-names-location'>
         {data[activeSlideIndex].location}

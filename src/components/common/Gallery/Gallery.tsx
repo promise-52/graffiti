@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Slider from "./components/Slider/Slider";
 import './Gallery.scss'
 import img from '@/assets/img/test.jpg'
@@ -14,6 +14,7 @@ export interface Slide {
 
 export default function Gallery() {
   const [activeSlideIndex, setActiveSlideIndex] = useState(0)
+  const galleryModalRef = useRef<any>(null)
 
   const slides: Slide[] = [
     {
@@ -91,15 +92,23 @@ export default function Gallery() {
   ]
 
   return <>
+  <GalleryModal ref={galleryModalRef}/>
     <div className="gallery-title text-heathergreen">
       ПОРТФОЛИО
     </div>
     <div className="gallery-container">
+      <div className='gallery-show-more text-pptelegraph text-white weight-800' onClick={() => galleryModalRef.current.open()}>
+        <div>
+          БОЛЬШЕ РАБОТ
+        </div>
+        <div className='gallery-show-more-rectangle'>
+        </div>
+      </div>
       <Slider data={slides} />
       <div className="text-heathergreen" id="geography-title">
         Наша <br />география
       </div>
     </div>
-    <GalleryModal />
+    
   </>
 }

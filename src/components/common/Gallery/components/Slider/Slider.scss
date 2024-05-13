@@ -8,6 +8,9 @@ $slider-top-padding: 15vh;
     overflow-y: hidden;
     max-width: calc(1920px - 25px);
     margin: 0 10px;
+    @media screen and (max-width: calc(640px)) { 
+      margin: 0 7.5px;
+    }
   }
 
   &-container {
@@ -16,6 +19,9 @@ $slider-top-padding: 15vh;
     column-gap: 10px;
     transform: translate3d(0px, 0px, 0px);
     transition: transform 0.5s;
+    @media screen and (max-width: calc(640px)) { 
+      column-gap: 5px;
+    }
   }
 
   &-arrows {
@@ -51,7 +57,6 @@ $slider-top-padding: 15vh;
       font-weight: 800;
       transition: top 0.3s ;
     }
-    
     &-location {
       margin-bottom: 3px;
     }
@@ -59,24 +64,13 @@ $slider-top-padding: 15vh;
       margin-bottom: 10px;
     }
     &-authors {
-      &-container {
-        
-      }
       &-item {
         display: flex;
         gap: 50px;
       }
     }
   } 
-  &-show-more {
-    position: absolute;
-    top: calc($slider-top-padding + 625px);;
-    right: 15px;  
-    &-rectangle {
-      background-color: $primary-color;
-      height: 10px;
-    }
-  }
+  
   &-counter {
     position: absolute;
     display: flex;

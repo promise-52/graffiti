@@ -1,4 +1,14 @@
 .slider-item {
+  height: 183px;  
+  bottom: 0;
+  
+  @media screen and (max-width: calc(800px + 40px)) { 
+    height:150px;
+  }
+  @media screen and (max-width: calc(600px + 40px)) { 
+    height: 115px;
+  }
+
   &-container {
     transition: bottom 0.2s;
     position: relative;
@@ -17,11 +27,27 @@
   &-active {
     height: 587px;
     margin-top: 0px;
+
+    @media screen and (max-width: calc(1700px + 40px)) { //40px - ширина маржинов вокруг основного контейнера
+      height: 450px;
+    }
+    @media screen and (max-width: calc(1500px + 40px)) { 
+      height: 400px;
+    }
+    @media screen and (max-width: calc(1000px + 40px)) { 
+      height:183px;
+    }
+    @media screen and (max-width: calc(800px + 40px)) { 
+      height:150px;
+    }
+    @media screen and (max-width: calc(600px + 40px)) { 
+      height: 115px;
+    }
+    
     //transition: margin 0.5s;
   } 
 
-  height: 183px;  
-  bottom: 0;
+  
 
   img {
     min-width: 100%;
@@ -30,10 +56,6 @@
     object-fit: cover;
   }
 
-  // &:hover:not(.slider-item-active) {
-  //   bottom: 20px;
-  // }
-
   &-favicons {
     &-container {
       display: flex;
@@ -41,7 +63,12 @@
       position: absolute;
       gap: 10px;
       right: calc(-50px - 10px);
-      
+      @media screen and (max-width: calc(1700px + 40px)) { //40px - ширина маржинов вокруг основного контейнера
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        right: -120px;
+      }
     }
     &-item {
       width: 50px;
