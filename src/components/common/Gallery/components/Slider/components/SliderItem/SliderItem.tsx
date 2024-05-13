@@ -8,10 +8,11 @@ interface PropsSliderItem {
   index: number
   isActive: boolean
   slide: Slide
+  showIndex: boolean
   onClick?: (index: number) => void
 }
 
-export default function SliderItem({ style, imgSrc, isActive, index, onClick, slide }: PropsSliderItem) {
+export default function SliderItem({ style, imgSrc, isActive, index, onClick, slide, showIndex }: PropsSliderItem) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   const onItemClick = (index: number) => {
@@ -20,9 +21,9 @@ export default function SliderItem({ style, imgSrc, isActive, index, onClick, sl
 
   return <>
     <div className='slider-item-container'>
-      <div className={`slider-item-index text-pptelegraph ${ isActive ? '' : 'primary-opacity'}`}>
+      { showIndex && <div className={`slider-item-index text-pptelegraph ${ isActive ? '' : 'primary-opacity'}`}>
         {`${index < 10 ? '0' : ''}${index}`}
-      </div>
+      </div>}
       <div className='slider-item' style={style}>
         {isActive &&
           <div className='slider-item-favicons-container text-white'>

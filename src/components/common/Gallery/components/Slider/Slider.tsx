@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { Slide } from '../../Gallery';
 import arrowRight from '@/assets/img/Arrow 2.svg'
+import useWindowDimensions from '@/hooks/window-dimension';
 
 interface SliderProps {
   data: Slide[]
@@ -15,13 +16,15 @@ interface SliderProps {
 
 export default function Slider({ data }: SliderProps) {
   const sliderContainerRef = useRef<any>()
+  const { width: screenWidth, height: screenHeight } = useWindowDimensions()
   const { width } = useContainerDimensions(sliderContainerRef)
+  
   const [activeSlideIndex, setActiveSlideIndex] = useState<number>(0)
   const slides = useRef<Element[]>([])
   const galleryTitle = useRef<HTMLDivElement>(null)
 
   const sliderGap = useMemo(() => {
-    if(width > 600) {
+    if(width > 605) {
       return 10
     } else {
       return 5
@@ -29,15 +32,17 @@ export default function Slider({ data }: SliderProps) {
   }, [width])
   
   const getCenterSliderWidth = () => {
-    if (width >= 1700) {
+    if (screenWidth > 1700) {
       return [742, 7]
-    } else if (width >= 1500) {
+    } else if (screenWidth > 1500) {
       return [600, 5]
-    } else if (width >= 1000) {
-      return [400, 5]
+    } else if (screenWidth >= 1000) {
+      return [350, 5]
     }
-    else if(width <= 640) {
-      return [100, 5]
+    else if(screenWidth >= 550) {
+      return [width/5, 5]
+    } else if(screenWidth <= 550) {
+      return [width/3, 3]
     }
     return [width/5, 5]
   }
@@ -46,7 +51,7 @@ export default function Slider({ data }: SliderProps) {
 
   const [centerSlideWidth, slidesPerPage] = width ? getCenterSliderWidth() : [0,0]
   const slideWidth = width ? ((width - centerSlideWidth - sliderGap) / (slidesPerPage > 2 ? (slidesPerPage - 1) : 1)) - sliderGap : 0
-  console.log('slideWidth',slideWidth)
+  
   const sliderInit = () => {
     const s = document.getElementsByClassName('slider-item');
     const containerStyle = (document.getElementsByClassName('slider-container')[0] as any).style as CSSStyleDeclaration
@@ -56,6 +61,7 @@ export default function Slider({ data }: SliderProps) {
       oldActiveSlide.parentElement?.classList.remove('slider-item-container-active')
     }
 
+      console.log('width', width)
     slides.current = [...s]
     const index = Math.ceil(slidesPerPage / 2);
     setActiveSlideIndex(index);
@@ -98,7 +104,10 @@ export default function Slider({ data }: SliderProps) {
   }
 
   useEffect(() => {
-    sliderInit()
+    if(width > 0) {
+      sliderInit()
+    }
+    
     console.log(width)
   }, [width])
 
@@ -152,6 +161,9 @@ export default function Slider({ data }: SliderProps) {
         </div>
       </div>
       <div className='slider-overflow-container' ref={sliderContainerRef}>
+        { screenWidth <= 1000 && 
+          <img src={data[activeSlideIndex].imagesUrls[0]} className='slider-overflow-container-image' />
+        }
         <div className='slider-container text-white' style={{ transform: 'translate3d(0px, 0px, 0px)' }}>
           {data.map((slide: Slide, index: number) => (
             <SliderItem
@@ -161,6 +173,7 @@ export default function Slider({ data }: SliderProps) {
               isActive={activeSlideIndex === index}
               index={index}
               key={index}
+              showIndex={width > 1000 ? true : false}
               onClick={(index) => changeSlide(index)}
             />
           ))}

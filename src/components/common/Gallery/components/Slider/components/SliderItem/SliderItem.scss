@@ -2,10 +2,10 @@
   height: 183px;  
   bottom: 0;
   
-  @media screen and (max-width: calc(800px + 40px)) { 
+  @media screen and (max-width: calc(800px)) { 
     height:150px;
   }
-  @media screen and (max-width: calc(600px + 40px)) { 
+  @media screen and (max-width: calc(600px)) { 
     height: 115px;
   }
 
@@ -16,6 +16,11 @@
       bottom: 20px;
     }
     bottom: 0;
+    &-active {
+      @media screen and (max-width: calc(1000px)) { 
+        bottom: 20px;
+      }
+    }
   }
 
   &-index {
@@ -26,21 +31,20 @@
 
   &-active {
     height: 587px;
-    margin-top: 0px;
 
-    @media screen and (max-width: calc(1700px + 40px)) { //40px - ширина маржинов вокруг основного контейнера
+    @media screen and (max-width: calc(1700px)) { //40px - ширина маржинов вокруг основного контейнера
       height: 450px;
     }
-    @media screen and (max-width: calc(1500px + 40px)) { 
+    @media screen and (max-width: calc(1500px)) { 
       height: 400px;
     }
-    @media screen and (max-width: calc(1000px + 40px)) { 
+    @media screen and (max-width: calc(1000px)) { 
       height:183px;
     }
-    @media screen and (max-width: calc(800px + 40px)) { 
+    @media screen and (max-width: calc(800px)) { 
       height:150px;
     }
-    @media screen and (max-width: calc(600px + 40px)) { 
+    @media screen and (max-width: calc(600px)) { 
       height: 115px;
     }
     
@@ -63,7 +67,7 @@
       position: absolute;
       gap: 10px;
       right: calc(-50px - 10px);
-      @media screen and (max-width: calc(1700px + 40px)) { //40px - ширина маржинов вокруг основного контейнера
+      @media screen and (max-width: calc(1700px)) { //40px - ширина маржинов вокруг основного контейнера
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: auto;
