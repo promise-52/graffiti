@@ -4,7 +4,7 @@ import './Gallery.scss'
 import img from '@/assets/img/test.jpg'
 import img2 from '@/assets/img/test2.jpg'
 import GalleryModal from "./components/GalleryModal/GalleryModal";
-
+import gif from '@/assets/img/ballon.gif'
 export interface Slide {
   location: string
   name: string

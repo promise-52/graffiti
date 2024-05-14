@@ -1,13 +1,14 @@
 @import '@/scss/_colors.scss';
-@import './components//Slider//Slider.scss';
+
 
 
 .gallery {
   &-container {
     padding-top: 15vh;
     position: relative;
-    @media screen and (max-width: calc(1000px + 40px)) { //40px - ширина маржинов вокруг основного контейнера
+    @media screen and (max-width: 1000px) { //40px - ширина маржинов вокруг основного контейнера
       height:183px;
+      padding-top: 10vh;
     }
     
   }
@@ -23,7 +24,7 @@
   }
   &-show-more {
     position: absolute;
-    top: calc($slider-top-padding + 625px);;
+    top: calc(15vh + 625px);;
     right: 15px;  
     &-rectangle {
       background-color: $primary-color;

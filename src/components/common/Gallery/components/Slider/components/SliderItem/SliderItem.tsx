@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import './SliderItem.scss'
+
 import { Slide } from '@/components/common/Gallery/Gallery'
+import SliderItemFavicons from '../SliderItemFavicons/SliderItemFavicons'
 
 interface PropsSliderItem {
   style: React.CSSProperties,
@@ -18,24 +19,13 @@ export default function SliderItem({ style, imgSrc, isActive, index, onClick, sl
   const onItemClick = (index: number) => {
     setCurrentImageIndex(index)
   }
-
   return <>
     <div className='slider-item-container'>
       { showIndex && <div className={`slider-item-index text-pptelegraph ${ isActive ? '' : 'primary-opacity'}`}>
         {`${index < 10 ? '0' : ''}${index}`}
       </div>}
       <div className='slider-item' style={style}>
-        {isActive &&
-          <div className='slider-item-favicons-container text-white'>
-            {
-              slide.imagesUrls.map((src, index) => (
-                <div className={`slider-item-favicons-item ${index === currentImageIndex ? 'slider-item-favicons-item-active' : ''}`} key={index} onClick={() => onItemClick(index)}>
-                  <img src={src} className='slider-item-favicons-img' />
-                </div>
-              ))
-            }
-          </div>
-        }
+        <SliderItemFavicons isActive={isActive} showIndex={showIndex} slide={slide} onClick={onItemClick} currentImageIndex={currentImageIndex}/>
         <img className='slider-item-main-image' src={imgSrc[currentImageIndex]} onClick={() => onClick && onClick(index)}></img>
       </div>
     </div>
