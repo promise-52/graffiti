@@ -8,19 +8,37 @@ $slider-top-padding: 15vh;
     overflow-y: hidden;
     max-width: calc(1920px - 25px);
     margin: 0 10px;
+    
     @media screen and (max-width: 600px) { 
       margin: 0 7.5px;
+    }
+    &-image-container {
+      position: relative;
+      @media screen and (max-width: 550px) {
+        width: 100%;
+        padding: 2.5px;
+      }
     }
     &-image {
       height: 331px;
       width: 358px;
       object-fit: cover;
-      margin-bottom: 40px;
+      
+      @media screen and (max-width: 550px) {
+        height: 100%;
+        width: 100%;
+      }
     }
     &-additional-favicons {
       position: absolute;
       right: -50px;
       top:0;
+      @media screen and (max-width: 550px) {
+        top: -50px;
+        left: 0;
+        flex-direction: row;
+        overflow: visible;
+      }
     }
     &-additional-container {
       &-inner {
@@ -30,6 +48,11 @@ $slider-top-padding: 15vh;
         flex-direction: row;
         justify-content: center;
         gap: 10px;
+        margin-bottom: 40px;
+        @media screen and (max-width: 550px) {
+          margin-top: 50px;
+          height: 257px;
+        }
       }
     }
   }

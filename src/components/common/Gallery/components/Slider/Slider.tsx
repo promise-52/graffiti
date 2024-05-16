@@ -141,8 +141,8 @@ export default function Slider({ data }: SliderProps) {
         {screenWidth <= 1000 &&
           <div className='slider-overflow-container-additional-container'>
             <div className='slider-overflow-container-additional-container-inner'>
-              <div style={{position: 'relative'}}>
-                <img src={data[activeSlideIndex].imagesUrls[0]} className='slider-overflow-container-image' />
+              <div style={{position: 'relative'}} className='slider-overflow-container-image-container'>
+                <img src={data[activeSlideIndex].imagesUrls[currentAdditionImageIndex]} className='slider-overflow-container-image' />
                 <SliderItemFavicons
                   isActive={true}
                   showIndex={true}
