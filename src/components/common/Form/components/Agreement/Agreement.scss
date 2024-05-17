@@ -1,0 +1,37 @@
+@import '@/scss/_colors.scss';
+
+.checkbox-component {
+  display: flex;
+  align-items: center;
+  color: white;
+  margin: 10px 5px;
+
+  input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid white;
+    border-radius: 3px;
+    margin-right: 10px;
+    position: relative;
+
+    &:checked {
+      background-color: transparent;
+      &:after {
+        content: '✔';
+        color: $font-white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 16px;
+      }
+    }
+  }
+
+  .checkbox-label {
+    color: $font-white;
+    font-size: 13px;
+    font-weight: 800;
+  }
+}

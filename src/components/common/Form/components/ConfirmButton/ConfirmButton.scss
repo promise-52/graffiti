@@ -1,0 +1,28 @@
+@import '@/scss/_colors.scss';
+@import '@/scss/_font.scss';
+
+.button-component {
+  width: 100%;
+  background-color: $primary-color;
+  border: none;
+  color: $secondary-color;
+  padding: 35px 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background-color: #6A0DAD;
+    color: #ffffff;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(106, 13, 173, 0.5);
+  }
+
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 90%;
+  text-transform: uppercase;
+}
