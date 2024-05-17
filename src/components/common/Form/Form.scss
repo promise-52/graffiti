@@ -1,0 +1,46 @@
+@import '@/scss/_colors.scss';
+@import '@/scss/_font.scss';
+
+.form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &-header-container {
+    margin-top: 106px;
+    margin-right: 43px;
+    display: flex;
+    flex-direction: column;
+  }
+  &-header {
+    font-size: 60px;
+    font-weight: 800;
+    line-height: 90%;
+    font-style: normal;
+    color: $font-white;
+    align-self: flex-end;
+
+    &.last {
+      margin-right: 184px;
+    }
+    b {
+      color: $primary-color;
+    }
+  }
+
+  &-input-line {
+    display: flex;
+    div {
+      margin: 10px 5px;
+    }
+  }
+  
+  &-input-container {
+    align-self: flex-end;
+    margin-top: 163px;
+    margin-right: 10px;
+
+    width: 935px;
+  }
+}
