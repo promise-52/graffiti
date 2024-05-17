@@ -10,6 +10,7 @@ function App() {
       <div className="app-block-container">
         <Gallery />
       </div>
+      
     </>
   )
 }

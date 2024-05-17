@@ -1,19 +1,20 @@
 @import '@/scss/_colors.scss';
 
-
-
 .gallery {
   &-container {
     padding-top: 15vh;
     position: relative;
-    @media screen and (max-width: 1000px) { //40px - ширина маржинов вокруг основного контейнера
-      height:183px;
+
+    @media screen and (max-width: 1000px) {
+      //40px - ширина маржинов вокруг основного контейнера
+      //height:183px;
       padding-top: 10vh;
     }
-    
+
   }
+
   &-title {
-    color:$primary-color;
+    color: $primary-color;
     position: absolute;
     font-size: 40px;
     line-height: 48px;
@@ -22,23 +23,59 @@
     margin-top: 10px;
     margin-left: 20px;
   }
+
   &-show-more {
     position: absolute;
-    top: calc(15vh + 625px);;
-    right: 15px;  
+    top: calc(15vh + 625px);
+    right: 15px;
+    cursor: pointer;
+
     &-rectangle {
       background-color: $primary-color;
       height: 10px;
     }
-    cursor: pointer;
+    @media screen and (max-width: 1700px) {
+      top: calc(15vh + 490px);
+    }
+    @media screen and (max-width: 1500px) {
+      top: calc(15vh + 440px);
+    }
+    @media screen and (max-width: 1000px) {
+      top: calc(10vh + 500px);
+    }
+    @media screen and (max-width: 760px) {
+      font-size: 12px;
+    }
+    @media screen and (max-width: 640px) {
+      font-size: 12px;
+      right: 10.5px;
+    }
+    @media screen and (max-width: 550px) {
+      top: calc(10vh + 470px);
+    }
   }
 }
 
 #geography-title {
   position: absolute;
-  right: 40%;
+  //right: 40%;
   font-size: 80px;
   line-height: 64px;
   color: $primary-color;
-  margin-top: 21px;
+  letter-spacing: 0.1em;
+  bottom: -20px;
+  left: 48%;
+  @media screen and (max-width: 1500px) {
+    left: 54%;
+    bottom: -30px;
+  }
+  @media screen and (max-width: 1000px) {
+    left: 48%;
+    bottom: -50px;
+  }
+  @media screen and (max-width: 760px) {
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 28px;
+  }
 }
