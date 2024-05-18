@@ -173,7 +173,7 @@ export default function Slider({ data }: SliderProps) {
       </div>
       <div className="slider-names-anim slider-names-container text-white text-pptelegraph line-height-middle"
         ref={galleryTitle}
-        style={{ left: ((slideWidth + sliderGap) * Math.floor(slidesPerPage / 2) + sliderGap + sliderGap / 2) }}
+        style={{ left: ((slideWidth + sliderGap) * (Math.floor(slidesPerPage / 2) - (Number(screenWidth <= 1000))) + sliderGap + sliderGap / 2) }}
       >
         <div className='slider-names-location'>
           {data[activeSlideIndex].location}
