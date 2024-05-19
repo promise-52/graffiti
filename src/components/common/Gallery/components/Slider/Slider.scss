@@ -8,6 +8,11 @@ $slider-top-padding: 15vh;
     overflow-y: hidden;
     max-width: calc(1920px - 25px);
     margin: 0 10px;
+    
+
+    @media screen and (min-width: 1920px) {
+      margin: auto;
+    }
 
     @media screen and (max-width: 600px) {
       margin: 0 7.5px;
@@ -142,10 +147,14 @@ $slider-top-padding: 15vh;
   &-counter {
     position: absolute;
     display: flex;
-    margin-left: 15px;
-    top: 863px;
+    left: 5px;
+    margin-top: 10px;
     @media screen and (max-width: 1700px) {
       top: 740px;
     }
+  }
+  &-tooltips-container {
+    max-width: 1895px;
+    margin: auto;
   }
 }

@@ -26,33 +26,22 @@
 
   &-show-more {
     position: absolute;
-    top: calc(15vh + 625px);
-    right: 15px;
+    right:15px;
     cursor: pointer;
 
     &-rectangle {
       background-color: $primary-color;
       height: 10px;
     }
-    @media screen and (max-width: 1700px) {
-      top: calc(15vh + 490px);
+
+    @media screen and (min-width: 1920px) {
+      right: 5px;
     }
-    @media screen and (max-width: 1500px) {
-      top: calc(15vh + 440px);
-    }
-    @media screen and (max-width: 1000px) {
-      top: calc(10vh + 500px);
-    }
+
     @media screen and (max-width: 760px) {
       font-size: 12px;
     }
-    @media screen and (max-width: 640px) {
-      font-size: 12px;
-      right: 10.5px;
-    }
-    @media screen and (max-width: 550px) {
-      top: calc(10vh + 470px);
-    }
+    margin-top: 10px;
   }
 }
 

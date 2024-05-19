@@ -97,13 +97,7 @@ export default function Gallery() {
       ПОРТФОЛИО
     </div>
     <div className="gallery-container">
-      <div className='gallery-show-more text-pptelegraph text-white weight-800' onClick={() => galleryModalRef.current.open()}>
-        <div>
-          БОЛЬШЕ РАБОТ
-        </div>
-        <div className='gallery-show-more-rectangle'>
-        </div>
-      </div>
+      
       <Slider data={slides} />
       <div className="text-heathergreen" id="geography-title">
         Наша <br />география

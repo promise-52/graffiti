@@ -128,20 +128,12 @@ export default function Slider({ data }: SliderProps) {
         <FontAwesomeIcon className='slider-arrows-item' icon={faArrowRight} onClick={(e) => goForward(activeSlideIndex)} />
       </div>
 
-      <div className='slider-counter text-pptelegraph text-white weight-800'>
-        <div className='primary-opacity'>
-          {activeSlideIndex + 1}
-        </div>
-        /
-        <div>
-          {data.length}
-        </div>
-      </div>
+
       <div className='slider-overflow-container' ref={sliderContainerRef}>
         {screenWidth <= 1000 &&
           <div className='slider-overflow-container-additional-container'>
             <div className='slider-overflow-container-additional-container-inner'>
-              <div style={{position: 'relative'}} className='slider-overflow-container-image-container'>
+              <div style={{ position: 'relative' }} className='slider-overflow-container-image-container'>
                 <img src={data[activeSlideIndex].imagesUrls[currentAdditionImageIndex]} className='slider-overflow-container-image' />
                 <SliderItemFavicons
                   isActive={true}
@@ -171,32 +163,50 @@ export default function Slider({ data }: SliderProps) {
           ))}
         </div>
       </div>
-      <div className="slider-names-anim slider-names-container text-white text-pptelegraph line-height-middle"
-        ref={galleryTitle}
-        style={{ left: ((slideWidth + sliderGap) * (Math.floor(slidesPerPage / 2) - (Number(screenWidth <= 1000))) + sliderGap + sliderGap / 2) }}
-      >
-        <div className='slider-names-location'>
-          {data[activeSlideIndex].location}
+      <div className='slider-tooltips-container' style={{ position: 'relative' }}>
+        <div className='slider-counter text-pptelegraph text-white weight-800'>
+          <div className='primary-opacity'>
+            {activeSlideIndex + 1}
+          </div>
+          /
+          <div>
+            {data.length}
+          </div>
         </div>
-        <div className='slider-names-title primary-opacity'>
-          {data[activeSlideIndex].name}
+        <div className='gallery-show-more text-pptelegraph text-white weight-800'/* onClick={() => galleryModalRef.current.open()}*/>
+          <div >
+            БОЛЬШЕ РАБОТ
+          </div>
+          <div className='gallery-show-more-rectangle'>
+          </div>
         </div>
-        <div className='slider-names-authors-container '>
-          {
-            data[activeSlideIndex].authors.map((author) => (
-              <div className='slider-names-authors-item line-height-middle'>
-                <div className='primary-opacity'>
-                  /
-                </div>
-                <div>
-                  {author}
-                </div>
-              </div>
-            )
-            )
-          }
+        <div className="slider-names-anim slider-names-container text-white text-pptelegraph line-height-middle"
+          ref={galleryTitle}
+          style={{ left: ((slideWidth + sliderGap) * (Math.floor(slidesPerPage / 2) - (Number(screenWidth <= 1000))) + sliderGap + sliderGap / 2) }}
+        >
+          <div className='slider-names-location'>
+            {data[activeSlideIndex].location}
+          </div>
+          <div className='slider-names-title primary-opacity'>
+            {data[activeSlideIndex].name}
+          </div>
+          <div className='slider-names-authors-container '>
+            {
+              data[activeSlideIndex].authors.map((author) => (
+                <div className='slider-names-authors-item line-height-middle'>
+                  <div className='primary-opacity'>
+                    /
+                  </div>
+                  <div>
+                    {author}
+                  </div>
+                </div>)
+              )
+            }
+          </div>
         </div>
       </div>
+
     </>
   );
 }
