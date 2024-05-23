@@ -3,22 +3,36 @@ import './Form.scss'
 import Input from './components/Input/Input'
 import Agreement from './components/Agreement/Agreement';
 import ConfirmButton from './components/ConfirmButton/ConfirmButton';
+import { faPaperclip } from '@fortawesome/free-solid-svg-icons';
+import mail from './components/Mailer/Mailer.ts';
 
-interface IFrom {
-  telephone?: number
+export interface IForm {
+  telephone?: string
   name?: string
+  square?: string
+  city?: string
+  files?: FileList
   agreement?: boolean
 }
 
 export default function Form() {
-  const [formValue, setformValue] = useState<IFrom>({});
+  const [formValue, setformValue] = useState<IForm>({
+    telephone: '',
+    name: '',
+    square: '',
+    city: '',
+    agreement: false
+  });
 
-  const handleInputChange = (value: string | number | boolean, key: string) => {
+  const handleInputChange = (
+    value: string | boolean | string[] | FileList | null,
+    key: string
+  ) => {
     setformValue({ ...formValue, [key]: value });
   };
 
   const confirmForm = () => {
-
+    mail(formValue)
   }
 
   return (
@@ -40,7 +54,7 @@ export default function Form() {
           <Input
             style={{ width: '58%' }}
             placeholder='Телефон'
-            type='text'
+            type='tel'
             value={formValue.telephone}
             onChange={(value) => handleInputChange(value, 'telephone')}
           />
@@ -55,23 +69,23 @@ export default function Form() {
           <Input
             style={{ width: '58%' }}
             placeholder='Фото'
-            type='text'
-            value={formValue.telephone}
-            onChange={(value) => handleInputChange(value, 'telephone')}
+            type='file'
+            onChange={(value) => handleInputChange(value, 'files')}
+            icon={faPaperclip}
           />
           <Input
             placeholder='Размеры объекта, кв.м.'
-            type='text'
-            value={formValue.name}
-            onChange={(value) => handleInputChange(value, 'name')}
+            type='number'
+            value={formValue.square}
+            onChange={(value) => handleInputChange(value, 'square')}
           />
         </div>
         <div className='form-input-line'>
           <Input
             placeholder='Город'
             type='text'
-            value={formValue.name}
-            onChange={(value) => handleInputChange(value, 'name')}
+            value={formValue.city}
+            onChange={(value) => handleInputChange(value, 'city')}
           />
         </div>
         <Agreement
@@ -81,6 +95,7 @@ export default function Form() {
         <ConfirmButton
           label='¡поехали!'
           onClick={confirmForm}
+          disabled={!formValue.agreement}
         />
       </div>
     </div>

@@ -6,11 +6,11 @@ $slider-top-padding: 15vh;
   &-overflow-container {
     overflow-x: hidden;
     overflow-y: hidden;
-    max-width: calc(1920px - 25px);
+    //max-width: calc(1920px - 25px);
     margin: 0 10px;
     
 
-    @media screen and (min-width: 1920px) {
+    @media screen and (min-width: 1921px) {
       margin: auto;
     }
 
@@ -154,7 +154,7 @@ $slider-top-padding: 15vh;
     }
   }
   &-tooltips-container {
-    max-width: 1895px;
+    //max-width: 1895px;
     margin: auto;
   }
 }

@@ -14,7 +14,6 @@ export interface Slide {
 
 export default function Gallery() {
   const [activeSlideIndex, setActiveSlideIndex] = useState(0)
-  const galleryModalRef = useRef<any>(null)
 
   const slides: Slide[] = [
     {
@@ -92,7 +91,6 @@ export default function Gallery() {
   ]
 
   return <>
-  <GalleryModal ref={galleryModalRef}/>
     <div className="gallery-title text-heathergreen">
       ПОРТФОЛИО
     </div>

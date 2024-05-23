@@ -10,6 +10,7 @@ import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { Slide } from '../../Gallery';
 import useWindowDimensions from '@/hooks/window-dimension';
 import SliderItemFavicons from './components/SliderItemFavicons/SliderItemFavicons';
+import GalleryModal from '../GalleryModal/GalleryModal';
 
 interface SliderProps {
   data: Slide[]
@@ -17,6 +18,7 @@ interface SliderProps {
 
 export default function Slider({ data }: SliderProps) {
   const sliderContainerRef = useRef<any>()
+  const galleryModalRef = useRef<any>(null)
   const { width: screenWidth, height: screenHeight } = useWindowDimensions()
   const { width } = useContainerDimensions(sliderContainerRef)
   const [currentAdditionImageIndex, setCurrentAdditionImageIndex] = useState(0)
@@ -34,7 +36,9 @@ export default function Slider({ data }: SliderProps) {
   }, [screenWidth])
 
   const getCenterSliderWidth = () => {
-    if (screenWidth > 1700) {
+    if(screenWidth > 2000) {
+      return [900, 9]
+    } else if (screenWidth > 1700) {
       return [742, 7]
     } else if (screenWidth > 1500) {
       return [600, 5]
@@ -123,6 +127,7 @@ export default function Slider({ data }: SliderProps) {
   console.log(Math.ceil(slidesPerPage / 2))
   return (
     <>
+      <GalleryModal ref={galleryModalRef}/>
       <div className='slider-arrows-container'>
         <FontAwesomeIcon className='slider-arrows-item' icon={faArrowLeft} onClick={(e) => goBack(activeSlideIndex)} />
         <FontAwesomeIcon className='slider-arrows-item' icon={faArrowRight} onClick={(e) => goForward(activeSlideIndex)} />
@@ -173,7 +178,7 @@ export default function Slider({ data }: SliderProps) {
             {data.length}
           </div>
         </div>
-        <div className='gallery-show-more text-pptelegraph text-white weight-800'/* onClick={() => galleryModalRef.current.open()}*/>
+        <div className='gallery-show-more text-pptelegraph text-white weight-800' onClick={() => galleryModalRef.current.open()}>
           <div >
             БОЛЬШЕ РАБОТ
           </div>
