@@ -12,19 +12,18 @@ export function Main() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (showsRef.current) {
+      if (showsRef.current && width > 400) {
         const computedStyle = window.getComputedStyle(showsRef.current)
         console.log(computedStyle.marginLeft) 
         setMarginLeft(computedStyle.marginLeft)
       }
-    }, 0) // Выполняем через макротаск, чтобы убедиться, что браузер закончил рендеринг
-
+    }, 1) // Выполняем через макротаск, чтобы убедиться, что браузер закончил рендеринг
     return () => clearTimeout(timer)
   }, [width])
 
   return (
     <div className='main-container'>
-      {marginLeft.toString()}
+      <div className='main-balloon'></div>
       <div className='main-text text-heathergreen'>
         <div className='main-stars-container'>
           <img src={star} alt="star" />
@@ -37,7 +36,7 @@ export function Main() {
         <div style={{marginLeft: 'auto'}} ref={showsRef}>
           ПРЕДСТАВЛЯЕТ
         </div>
-        <div style={{ marginTop: '1rem',}} >
+        <div style={{ marginTop: '1rem',}} className='main-jobs-container' >
           <img src={raboti}  alt="raboti"/>
         </div>
         <div style={{marginLeft}}>
