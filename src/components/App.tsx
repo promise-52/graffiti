@@ -71,7 +71,6 @@ function App() {
 
   return (
     <>
-      {pageIndex.current}
       <div id="main">
         <Main />
       </div>
