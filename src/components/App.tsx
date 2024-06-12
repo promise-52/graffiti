@@ -5,6 +5,7 @@ import './App.scss';
 import Form from "./common/Form/Form";
 import { Main } from "./common/Main/Main";
 import React, { useEffect, useRef } from "react";
+import { Contacts } from "./common/Contacts/Contacts";
 
 function App() {
   const pageIndex = useRef<number>(0);
@@ -79,6 +80,9 @@ function App() {
       </div>
       <div className="app-block-container" id="form">
         <Form />
+      </div>
+      <div className="app-block-container contacts" id="contacts">
+        <Contacts />
       </div>
     </>
   );
