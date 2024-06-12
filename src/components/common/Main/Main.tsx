@@ -4,6 +4,7 @@ import raboti from '@/assets/img/raboti.svg'
 import { useEffect, useRef, useState } from 'react'
 import useWindowDimensions from '@/hooks/window-dimension'
 import { Ballon } from '../Ballon/Ballon'
+import { NavBar } from '../Header/Header'
 
 export function Main() {
   const showsRef = useRef(null)
@@ -23,29 +24,32 @@ export function Main() {
   }, [width])
 
   return (
-    <div className='main-container'>
-      <div className='main-balloon'>
-        <Ballon />
+    <>
+      <NavBar />
+      <div className='main-container'>
+        <div className='main-balloon'>
+          <Ballon />
+        </div>
+        <div className='main-text text-heathergreen'>
+          <div className='main-stars-container'>
+            <img src={star} alt="star" />
+            <img src={star} alt="star" />
+            <img src={star} alt="star" />
+          </div>
+          <div style={{}}>
+            ЭФФЕКТГРАФФ
+          </div>
+          <div style={{marginLeft: 'auto'}} ref={showsRef}>
+            ПРЕДСТАВЛЯЕТ
+          </div>
+          <div style={{ marginTop: '1rem',}} className='main-jobs-container' >
+            <img src={raboti}  alt="raboti"/>
+          </div>
+          <div style={{marginLeft}}>
+            ЗДЕСЬ
+          </div>
+        </div>
       </div>
-      <div className='main-text text-heathergreen'>
-        <div className='main-stars-container'>
-          <img src={star} alt="star" />
-          <img src={star} alt="star" />
-          <img src={star} alt="star" />
-        </div>
-        <div style={{}}>
-          ЭФФЕКТГРАФФ
-        </div>
-        <div style={{marginLeft: 'auto'}} ref={showsRef}>
-          ПРЕДСТАВЛЯЕТ
-        </div>
-        <div style={{ marginTop: '1rem',}} className='main-jobs-container' >
-          <img src={raboti}  alt="raboti"/>
-        </div>
-        <div style={{marginLeft}}>
-          ЗДЕСЬ
-        </div>
-      </div>
-    </div>
+    </>
   )
 }

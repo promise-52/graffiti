@@ -1,0 +1,51 @@
+@import '@/scss/_colors.scss';
+@import '@/scss/_font.scss';
+
+.navbar {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+
+  box-sizing: border-box;
+  padding: 20px;
+
+  a {
+    color: $secondary-color;
+    font-weight: 800;
+    text-decoration: none;
+    font-size: 16px;
+  }
+
+  &-links {
+    margin-left: auto;
+    a {
+      position: relative;
+      margin: 0 25px;
+    }
+    a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 10px;
+      display: block;
+      margin-top: 5px;
+      right: 0;
+      background: $font-white;
+      transition: width 0.3s ease, right 0.3s ease;
+    }
+    a:hover::after {
+      width: 100%;
+      right: 0;
+    }
+  }
+  &-lang {
+    margin-left: auto;
+    align-self: flex-end;
+    a {
+      margin: 0 10px;
+    }
+    .active {
+      color: $font-white;
+    }
+  }
+}
