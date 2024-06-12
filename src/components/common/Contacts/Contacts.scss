@@ -41,6 +41,21 @@
       margin: auto;
       padding: 0;
       font-size: 140px;
+      @media screen and (max-width: 1545px) {
+        font-size: 100px;
+      }
+      @media screen and (max-width: 1200px) {
+        font-size: 80px;
+      }
+      @media screen and (max-width: 905px) {
+        font-size: 60px;
+      }
+      @media screen and (max-width: 690px) {
+        font-size: 40px;
+      }
+      @media screen and (max-width: 450px) {
+        font-size: 25px;
+      }
     }
     .links-block {
       padding: 15px;
@@ -48,6 +63,12 @@
     .links {
       display: flex;
       justify-content: space-between;
+      @media screen and (max-width: 400px) {
+        flex-direction: column;
+        a {
+          margin: 10px auto;
+        }
+      }
     }
     .blackline {
       background-color: $secondary-color;
