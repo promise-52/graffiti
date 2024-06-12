@@ -3,6 +3,7 @@ import star from '@/assets/img/star.svg'
 import raboti from '@/assets/img/raboti.svg'
 import { useEffect, useRef, useState } from 'react'
 import useWindowDimensions from '@/hooks/window-dimension'
+import balloon from '@/assets/img/balloon.webm'
 
 export function Main() {
   const showsRef = useRef(null)
@@ -23,7 +24,9 @@ export function Main() {
 
   return (
     <div className='main-container'>
-      <div className='main-balloon'></div>
+      <div className='main-balloon'>
+        <video autoPlay muted loop src={balloon} className="main-video"/>
+      </div>
       <div className='main-text text-heathergreen'>
         <div className='main-stars-container'>
           <img src={star} alt="star" />
@@ -40,7 +43,7 @@ export function Main() {
           <img src={raboti}  alt="raboti"/>
         </div>
         <div style={{marginLeft}}>
-          Здесь
+          ЗДЕСЬ
         </div>
       </div>
     </div>

@@ -114,14 +114,15 @@ $slider-top-padding: 15vh;
 
   &-names {
     &-anim {
-      margin-top: 10px;
+      top: 10px;
     }
 
     &-container {
+      top: 0;
       font-weight: 800;
       width: fit-content;
       position: relative;
-      transition: margin-top 0.3s;
+      transition: top 0.3s;
 
       @media screen and (max-width: 1000px) {
         font-size: 14px;
@@ -156,5 +157,6 @@ $slider-top-padding: 15vh;
   &-tooltips-container {
     //max-width: 1895px;
     margin: auto;
+    margin-top: 10px;
   }
 }

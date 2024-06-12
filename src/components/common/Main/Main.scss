@@ -1,6 +1,11 @@
 @import '@/scss/_colors.scss';
 
 .main {
+  &-video {
+    width: 100%;
+    height: 100%;
+  }
+
   &-container {
     height: 100vh;
     display: flex;
