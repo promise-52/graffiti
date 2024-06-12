@@ -85,7 +85,8 @@
     width: 935px;
     @media screen and (max-width: 980px) {
       margin: auto;
-      width: 95%;
+      margin-bottom: 0;
+      width: 100%;
     }
   }
 }
