@@ -48,4 +48,41 @@
       color: $font-white;
     }
   }
+  @media screen and (max-width: 767px) {
+    width: 30%;
+    height: 100%;
+    border-left: 2px solid $primary-color;
+    position: absolute;
+    z-index: 10;
+    right: 0;
+    transition: all 0.3s;
+    flex-direction: column;
+    background: $primary-color;
+    transform: translateX(100%);
+    &-links {
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      a {
+        margin: 20px;
+      }
+    }
+    &-lang {
+      margin: 30px auto;
+    }
+  }
+}
+.open-icon {
+  display: none;
+}
+@media screen and (max-width: 767px) {
+  .visible {
+    transform: translateX(0);
+  }
+  .open-icon {
+    display: block;
+    margin: 20px;
+    margin-left: auto;
+    color: $secondary-color;
+  }
 }
