@@ -5,12 +5,12 @@ import { useEffect, useRef, useState } from 'react'
 import useWindowDimensions from '@/hooks/window-dimension'
 import { Ballon } from '../Ballon/Ballon'
 import { NavBar } from '../Header/Header'
+import i18next from 'i18next'
 
 export function Main() {
   const showsRef = useRef(null)
   const [marginLeft, setMarginLeft] = useState('auto')
   const { width, height } = useWindowDimensions()
-
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -25,7 +25,6 @@ export function Main() {
 
   return (
     <>
-      <NavBar />
       <div className='main-container'>
         <div className='main-balloon'>
           <Ballon />
@@ -37,16 +36,16 @@ export function Main() {
             <img src={star} alt="star" />
           </div>
           <div style={{}}>
-            ЭФФЕКТГРАФФ
+            { i18next.t('label') }
           </div>
           <div style={{marginLeft: 'auto'}} ref={showsRef}>
-            ПРЕДСТАВЛЯЕТ
+            { i18next.t('present') }
           </div>
           <div style={{ marginTop: '1rem',}} className='main-jobs-container' >
             <img src={raboti}  alt="raboti"/>
           </div>
           <div style={{marginLeft}}>
-            ЗДЕСЬ
+            { i18next.t('here') }
           </div>
         </div>
       </div>

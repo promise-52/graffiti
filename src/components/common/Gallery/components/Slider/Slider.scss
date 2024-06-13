@@ -2,6 +2,10 @@
 
 $slider-top-padding: 15vh;
 
+.gallery-show-more {
+  text-transform: uppercase;
+}
+
 .slider {
   &-overflow-container {
     overflow-x: hidden;

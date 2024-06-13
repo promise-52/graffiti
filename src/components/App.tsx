@@ -4,8 +4,10 @@ import Gallery from '@/components/common/Gallery/Gallery';
 import './App.scss';
 import Form from "./common/Form/Form";
 import { Main } from "./common/Main/Main";
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Contacts } from "./common/Contacts/Contacts";
+import { NavBar } from "./common/Header/Header";
+import i18next from "i18next";
 
 function App() {
   const pageIndex = useRef<number>(0);
@@ -70,9 +72,17 @@ function App() {
     };
   }, []);
 
+  const [lang, setLang] = useState<'ru' | 'en'>('ru');
+
+  const updLang = (lang: 'ru' | 'en') => {
+    setLang(lang)
+    i18next.changeLanguage(lang)
+  }
+
   return (
     <>
       <div id="main">
+        <NavBar lang={i18next.language} changeLanguage={updLang} />
         <Main />
       </div>
       <div className="app-block-container" id="gallery">

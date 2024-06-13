@@ -5,6 +5,7 @@ import img from '@/assets/img/test.jpg'
 import img2 from '@/assets/img/test2.jpg'
 import GalleryModal from "./components/GalleryModal/GalleryModal";
 import gif from '@/assets/img/ballon.gif'
+import i18next from "i18next";
 export interface Slide {
   location: string
   name: string
@@ -92,13 +93,13 @@ export default function Gallery() {
 
   return <>
     <div className="gallery-title text-heathergreen">
-      ПОРТФОЛИО
+      { i18next.t('gallery') }
     </div>
     <div className="gallery-container">
       
       <Slider data={slides} />
       <div className="text-heathergreen" id="geography-title">
-        Наша <br />география
+        { i18next.t('our') } <br /> { i18next.t('geography') }
       </div>
     </div>
     

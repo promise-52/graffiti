@@ -13,6 +13,9 @@
     height: inherit;
     mix-blend-mode: soft-light;
     opacity: .7;
+    @media screen and (max-width: 500px) {
+      left: -100px;
+    }
   }
 }
 
@@ -44,8 +47,8 @@
     @media screen and (max-width: 540px) {
       font-size: 25px;
     }
-    @media screen and (max-width: 400px) {
-      font-size: 16px;
+    @media screen and (max-width: 420px) {
+      font-size: 18px;
     }
     font-weight: 800;
     line-height: 90%;

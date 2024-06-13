@@ -1,31 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import './Header.scss';
 import { faBars, faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import i18next from "i18next";
 
-export function NavBar() {
+interface INavBarProps {
+  changeLanguage: (lang: 'en' | 'ru') => void,
+  lang: string,
+}
+
+export function NavBar({ changeLanguage, lang }: INavBarProps) {
   const tabs = [
-    {
-      label: 'МАНИФЕСТ',
-      yakor: 'manifest',
-    },
-    {
-      label: 'ПОРТФОЛИО',
-      yakor: 'gallery',
-    },
-    {
-      label: 'ФОРМА',
-      yakor: 'form',
-    },
-    {
-      label: 'КОНТАКТЫ',
-      yakor: 'contacts',
-    },
+    'manifest',
+    'gallery',
+    'form',
+    'contacts',
   ];
 
-  const [lang, setLang] = useState<'ru' | 'eng'>('ru');
   const [isVisible, setVisible] = useState(false);
-
   return (
     <>
       <div style={{ display: 'flex' }}>
@@ -40,17 +32,17 @@ export function NavBar() {
         <div className="navbar-links">
           {
             tabs.map((tab) => 
-              <a href={`#${tab.yakor}`}>
-                { tab.label }
+              <a href={`#${tab}`}>
+                { i18next.t(tab) }
               </a>
             )
           }
         </div>
         <div className="navbar-lang">
-          <a className={ lang === 'eng' ? 'active' : '' } onClick={() => setLang('eng')} href="#">
+          <a className={ lang === 'en' ? 'active' : '' } onClick={() => changeLanguage('en')} href="#">
             ENG
           </a>
-          <a className={ lang === 'ru' ? 'active' : '' } onClick={() => setLang('ru')} href="#">
+          <a className={ lang === 'ru' ? 'active' : '' } onClick={() => changeLanguage('ru')} href="#">
             RU
           </a>
         </div>

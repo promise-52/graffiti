@@ -1,3 +1,4 @@
+import i18next from 'i18next';
 import './Contacts.scss'
 import atom from '@/assets/img/atom.png'
 
@@ -45,7 +46,7 @@ export function Contacts() {
           </div>
           <div className='blackline' />
           <p className='text-white text-pptelegraph'>
-            ** Meta признана экстремистской и запрещена в России
+            { i18next.t('meta') }
           </p>
         </div>
       </div>
