@@ -13,7 +13,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 
 export default forwardRef(
-  function GalleryModal(props: any, ref: any) {
+  function GalleryModal(_props: any, ref: any) {
     const [index, setIndex] = useState(-1);
     const container = useRef<any>(null)
     const grid = useRef<any>(null)
