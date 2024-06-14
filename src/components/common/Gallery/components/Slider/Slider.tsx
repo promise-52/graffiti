@@ -20,7 +20,7 @@ interface SliderProps {
 export default function Slider({ data }: SliderProps) {
   const sliderContainerRef = useRef<any>()
   const galleryModalRef = useRef<any>(null)
-  const { width: screenWidth, height: screenHeight } = useWindowDimensions()
+  const { width: screenWidth/* , height: screenHeight */ } = useWindowDimensions()
   const { width } = useContainerDimensions(sliderContainerRef)
   const [currentAdditionImageIndex, setCurrentAdditionImageIndex] = useState(0)
 
@@ -130,8 +130,8 @@ export default function Slider({ data }: SliderProps) {
     <>
       <GalleryModal ref={galleryModalRef}/>
       <div className='slider-arrows-container'>
-        <FontAwesomeIcon className='slider-arrows-item' icon={faArrowLeft} onClick={(e) => goBack(activeSlideIndex)} />
-        <FontAwesomeIcon className='slider-arrows-item' icon={faArrowRight} onClick={(e) => goForward(activeSlideIndex)} />
+        <FontAwesomeIcon className='slider-arrows-item' icon={faArrowLeft} onClick={() => goBack(activeSlideIndex)} />
+        <FontAwesomeIcon className='slider-arrows-item' icon={faArrowRight} onClick={() => goForward(activeSlideIndex)} />
       </div>
 
 

@@ -72,11 +72,11 @@ function App() {
     };
   }, []);
 
-  const [lang, setLang] = useState<'ru' | 'en'>('ru');
+  const [, setLang] = useState<'ru' | 'en'>('ru');
 
-  const updLang = (lang: 'ru' | 'en') => {
-    setLang(lang)
-    i18next.changeLanguage(lang)
+  const updLang = (newLang: 'ru' | 'en') => {
+    setLang(newLang)
+    i18next.changeLanguage(newLang)
   }
 
   return (

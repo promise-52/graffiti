@@ -4,13 +4,12 @@ import raboti from '@/assets/img/raboti.svg'
 import { useEffect, useRef, useState } from 'react'
 import useWindowDimensions from '@/hooks/window-dimension'
 import { Ballon } from '../Ballon/Ballon'
-import { NavBar } from '../Header/Header'
 import i18next from 'i18next'
 
 export function Main() {
   const showsRef = useRef(null)
   const [marginLeft, setMarginLeft] = useState('auto')
-  const { width, height } = useWindowDimensions()
+  const { width } = useWindowDimensions()
 
   useEffect(() => {
     const timer = setTimeout(() => {

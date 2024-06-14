@@ -6,7 +6,7 @@ import './scss/index.scss'
 import 'swiper/css';
 import { i18nInit } from './components/common/i18n/i18n.ts'
 
-await i18nInit();
+i18nInit();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.Suspense>

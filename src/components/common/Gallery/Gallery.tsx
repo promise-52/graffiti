@@ -1,10 +1,7 @@
-import { useRef, useState } from "react";
 import Slider from "./components/Slider/Slider";
 import './Gallery.scss'
 import img from '@/assets/img/test.jpg'
 import img2 from '@/assets/img/test2.jpg'
-import GalleryModal from "./components/GalleryModal/GalleryModal";
-import gif from '@/assets/img/ballon.gif'
 import i18next from "i18next";
 export interface Slide {
   location: string
@@ -14,8 +11,6 @@ export interface Slide {
 }
 
 export default function Gallery() {
-  const [activeSlideIndex, setActiveSlideIndex] = useState(0)
-
   const slides: Slide[] = [
     {
       location: 'Камчатка, Россия // 2022',

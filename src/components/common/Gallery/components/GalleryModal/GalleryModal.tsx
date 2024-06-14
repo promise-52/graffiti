@@ -1,6 +1,4 @@
 import './GalleryModal.scss'
-import img from '@/assets/img/test.jpg'
-import img2 from '@/assets/img/test2.jpg'
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react'
 import PhotoAlbum from 'react-photo-album'
 import Lightbox from "yet-another-react-lightbox";
@@ -14,87 +12,13 @@ import photos from './images';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 
-const images = [
-  {
-    src: img,
-    height: 200,
-    width: 200
-  },
-  {
-    src: img2,
-    height: 1920,
-    width: 1080
-  },
-  {
-    src: img,
-    height: 640,
-    width: 320
-  },
-  {
-    src: img,
-    height: 200,
-    width: 200
-  },
-  {
-    src: img,
-    height: 200,
-    width: 200
-  },
-  {
-    src: img,
-    height: 200,
-    width: 200
-  },
-  {
-    src: img,
-    height: 200,
-    width: 200
-  },
-  {
-    src: img,
-    height: 200,
-    width: 200
-  },
-  {
-    src: img,
-    height: 200,
-    width: 200
-  },
-  {
-    src: img,
-    height: 200,
-    width: 200
-  },
-  {
-    src: img,
-    height: 200,
-    width: 200
-  },
-  {
-    src: img,
-    height: 200,
-    width: 200
-  },
-  {
-    src: img,
-    height: 200,
-    width: 200
-  },
-  {
-    src: img,
-    height: 200,
-    width: 200
-  },
-]
-
 export default forwardRef(
   function GalleryModal(props: any, ref: any) {
     const [index, setIndex] = useState(-1);
-    const container: any = useRef(null)
-    const grid: any = useRef(null)
+    const container = useRef<any>(null)
+    const grid = useRef<any>(null)
 
     const open = () => {
-      console.log('open')
       container.current.classList.add('gallery-modal-container-opened')
     }
 
