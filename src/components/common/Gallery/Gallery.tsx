@@ -91,7 +91,6 @@ export default function Gallery() {
       { i18next.t('gallery') }
     </div>
     <div className="gallery-container">
-      
       <Slider data={slides} />
       <div className="text-heathergreen" id="geography-title">
         { i18next.t('our') } <br /> { i18next.t('geography') }

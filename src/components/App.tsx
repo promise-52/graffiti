@@ -8,10 +8,11 @@ import { useEffect, useRef, useState } from "react";
 import { Contacts } from "./common/Contacts/Contacts";
 import { NavBar } from "./common/Header/Header";
 import i18next from "i18next";
+import { Manifest } from "./common/Manifest/Manifest";
 
 function App() {
   const pageIndex = useRef<number>(0);
-  const breakpointsIds = ['main', 'gallery', 'form'];
+  const breakpointsIds = ['main', 'manifest', 'gallery', 'form', 'contacts'];
   const isAnimating = useRef(false);
 
   const smoothScrollTo = (target: HTMLElement) => {
@@ -84,6 +85,9 @@ function App() {
       <div id="main">
         <NavBar lang={i18next.language} changeLanguage={updLang} />
         <Main />
+      </div>
+      <div className="app-block-container" id="manifest">
+        <Manifest />
       </div>
       <div className="app-block-container" id="gallery">
         <Gallery />
