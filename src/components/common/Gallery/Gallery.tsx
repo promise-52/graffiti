@@ -1,10 +1,8 @@
-import { useRef, useState } from "react";
 import Slider from "./components/Slider/Slider";
 import './Gallery.scss'
 import img from '@/assets/img/test.jpg'
 import img2 from '@/assets/img/test2.jpg'
-import GalleryModal from "./components/GalleryModal/GalleryModal";
-import gif from '@/assets/img/ballon.gif'
+import i18next from "i18next";
 import { useInView } from 'react-intersection-observer'
 import { Transition } from 'react-transition-group'
 
@@ -30,8 +28,6 @@ const transitionStyles: any = {
 };
 
 export default function Gallery() {
-  const [activeSlideIndex, setActiveSlideIndex] = useState(0)
-
   const slides: Slide[] = [
     {
       location: 'Камчатка, Россия // 2022',
@@ -115,7 +111,7 @@ export default function Gallery() {
   return (
     <>
       <div className="gallery-title text-heathergreen">
-        ПОРТФОЛИО
+      { i18next.t('gallery') }
       </div>
       <Transition in={inView} timeout={duration}>
         {state => (
@@ -125,7 +121,7 @@ export default function Gallery() {
           }}>
             <Slider data={slides} />
             <div className="text-heathergreen" id="geography-title">
-              Наша <br />география
+            { i18next.t('our') } <br /> { i18next.t('geography') }
             </div>
           </div>
         )}

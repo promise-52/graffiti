@@ -5,6 +5,8 @@ import Agreement from './components/Agreement/Agreement';
 import ConfirmButton from './components/ConfirmButton/ConfirmButton';
 import { faPaperclip } from '@fortawesome/free-solid-svg-icons';
 import mail from './components/Mailer/Mailer.ts';
+import { Ballon } from '../Ballon/Ballon.tsx';
+import i18next from 'i18next';
 
 export interface IForm {
   telephone?: string
@@ -36,69 +38,73 @@ export default function Form() {
   }
 
   return (
-    <>
-    <div className="gallery-title text-heathergreen">
-      заявка
-    </div>
-    <div className='form text-pptelegraph'>
-      <div className='form-header-container'>
-        <span className='form-header text-underline'>
-          Считаем квадратные метры
-        </span>
-        <span className='form-header text-underline last'>
-          и <b>делаем</b> качественный <b>креатив</b>
-        </span>
+    <div className="form-container">
+      <div className="gallery-title text-heathergreen">
+        { i18next.t('form') }
       </div>
-      <div className='form-input-container'>
-        <div className='form-input-line'>
-          <Input
-            style={{ width: '58%' }}
-            placeholder='Телефон'
-            type='tel'
-            value={formValue.telephone}
-            onChange={(value) => handleInputChange(value, 'telephone')}
+      <Ballon />
+      <div className='form text-pptelegraph'>
+        <div className='form-header-container'>
+          <span className='form-header text-underline'>
+            { i18next.t('formBlock.calc') }
+          </span>
+          <span className='form-header text-underline last'>
+            { i18next.t('formBlock.and') } 
+            <b>{ i18next.t('formBlock.make') }</b> 
+            { i18next.t('formBlock.qualitative') } 
+            <b>{ i18next.t('formBlock.creativity') }</b>
+          </span>
+        </div>
+        <div className='form-input-container'>
+          <div className='form-input-line'>
+            <Input
+              style={{ width: '58%' }}
+              placeholder={i18next.t('formBlock.phone')}
+              type='tel'
+              value={formValue.telephone}
+              onChange={(value) => handleInputChange(value, 'telephone')}
+            />
+            <Input
+              placeholder={i18next.t('formBlock.name')}
+              type='text'
+              value={formValue.name}
+              onChange={(value) => handleInputChange(value, 'name')}
+            />
+          </div>
+          <div className='form-input-line'>
+            <Input
+              style={{ width: '58%' }}
+              placeholder={i18next.t('formBlock.photo')}
+              type='file'
+              onChange={(value) => handleInputChange(value, 'files')}
+              icon={faPaperclip}
+            />
+            <Input
+              placeholder={i18next.t('formBlock.sq')}
+              type='number'
+              value={formValue.square}
+              onChange={(value) => handleInputChange(value, 'square')}
+            />
+          </div>
+          <div className='form-input-line'>
+            <Input
+              placeholder={i18next.t('formBlock.city')}
+              type='text'
+              value={formValue.city}
+              onChange={(value) => handleInputChange(value, 'city')}
+            />
+          </div>
+          <Agreement
+            checked={formValue.agreement ?? false}
+            onCheckboxChange={(value) => handleInputChange(value, 'agreement')}
           />
-          <Input
-            placeholder='Имя'
-            type='text'
-            value={formValue.name}
-            onChange={(value) => handleInputChange(value, 'name')}
+          <ConfirmButton
+            label={`¡${i18next.t('formBlock.btn')}!`}
+            onClick={confirmForm}
+            disabled={!formValue.agreement}
           />
         </div>
-        <div className='form-input-line'>
-          <Input
-            style={{ width: '58%' }}
-            placeholder='Фото'
-            type='file'
-            onChange={(value) => handleInputChange(value, 'files')}
-            icon={faPaperclip}
-          />
-          <Input
-            placeholder='Размеры объекта, кв.м.'
-            type='number'
-            value={formValue.square}
-            onChange={(value) => handleInputChange(value, 'square')}
-          />
-        </div>
-        <div className='form-input-line'>
-          <Input
-            placeholder='Город'
-            type='text'
-            value={formValue.city}
-            onChange={(value) => handleInputChange(value, 'city')}
-          />
-        </div>
-        <Agreement
-          checked={formValue.agreement ?? false}
-          onCheckboxChange={(value) => handleInputChange(value, 'agreement')}
-        />
-        <ConfirmButton
-          label='¡поехали!'
-          onClick={confirmForm}
-          disabled={!formValue.agreement}
-        />
       </div>
     </div>
-    </>
   )
 }

@@ -9,6 +9,15 @@
   }
 }
 
+.contacts {
+  background: unset;
+}
+
+#main {
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+}
 /* width */
 ::-webkit-scrollbar {
   width: 10px;

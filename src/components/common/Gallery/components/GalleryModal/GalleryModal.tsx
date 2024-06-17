@@ -13,13 +13,12 @@ import img from '@/assets/img/test.jpg'
 import img2 from '@/assets/img/test2.jpg'
 
 export default forwardRef(
-  function GalleryModal(props: any, ref: any) {
+  function GalleryModal(_props: any, ref: any) {
     const [index, setIndex] = useState(-1);
-    const container: any = useRef(null)
-    const grid: any = useRef(null)
+    const container = useRef<any>(null)
+    const grid = useRef<any>(null)
 
     const open = () => {
-      console.log('open')
       container.current.classList.add('gallery-modal-container-opened')
     }
 

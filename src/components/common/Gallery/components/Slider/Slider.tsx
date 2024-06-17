@@ -11,6 +11,7 @@ import { Slide } from '../../Gallery';
 import useWindowDimensions from '@/hooks/window-dimension';
 import SliderItemFavicons from './components/SliderItemFavicons/SliderItemFavicons';
 import GalleryModal from '../GalleryModal/GalleryModal';
+import i18next from 'i18next';
 
 interface SliderProps {
   data: Slide[]
@@ -19,7 +20,7 @@ interface SliderProps {
 export default function Slider({ data }: SliderProps) {
   const sliderContainerRef = useRef<any>()
   const galleryModalRef = useRef<any>(null)
-  const { width: screenWidth, height: screenHeight } = useWindowDimensions()
+  const { width: screenWidth/* , height: screenHeight */ } = useWindowDimensions()
   const { width } = useContainerDimensions(sliderContainerRef)
   const [currentAdditionImageIndex, setCurrentAdditionImageIndex] = useState(0)
 
@@ -129,8 +130,8 @@ export default function Slider({ data }: SliderProps) {
     <>
       <GalleryModal ref={galleryModalRef}/>
       <div className='slider-arrows-container'>
-        <FontAwesomeIcon className='slider-arrows-item' icon={faArrowLeft} onClick={(e) => goBack(activeSlideIndex)} />
-        <FontAwesomeIcon className='slider-arrows-item' icon={faArrowRight} onClick={(e) => goForward(activeSlideIndex)} />
+        <FontAwesomeIcon className='slider-arrows-item' icon={faArrowLeft} onClick={() => goBack(activeSlideIndex)} />
+        <FontAwesomeIcon className='slider-arrows-item' icon={faArrowRight} onClick={() => goForward(activeSlideIndex)} />
       </div>
 
 
@@ -180,7 +181,7 @@ export default function Slider({ data }: SliderProps) {
         </div>
         <div className='gallery-show-more text-pptelegraph text-white weight-800' onClick={() => galleryModalRef.current.open()}>
           <div >
-            БОЛЬШЕ РАБОТ
+            { i18next.t('moreWorks') }
           </div>
           <div className='gallery-show-more-rectangle'>
           </div>

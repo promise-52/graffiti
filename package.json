@@ -20,6 +20,7 @@
     "@types/react-slick": "^0.23.13",
     "@types/react-transition-group": "^4.4.10",
     "framer-motion": "^11.2.4",
+    "i18next": "^23.11.5",
     "lightgallery": "^2.7.2",
     "lodash": "^4.17.21",
     "react": "^18.2.0",

@@ -1,0 +1,100 @@
+@import '@/scss/_colors.scss';
+@import '@/scss/_font.scss';
+
+.navbar {
+  &-atom {
+    top: 0;
+    position: absolute;
+    width: 10%;
+    max-width: 90px;
+    height: auto;
+    margin: 5px;
+  }
+  width: 100%;
+  height: fit-content;
+  display: flex;
+
+  box-sizing: border-box;
+  padding: 20px;
+
+  a {
+    text-transform: uppercase;
+    color: $secondary-color;
+    font-weight: 800;
+    text-decoration: none;
+    font-size: 16px;
+  }
+
+  &-links {
+    margin-left: auto;
+    a {
+      position: relative;
+      margin: 0 25px;
+    }
+    a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 10px;
+      display: block;
+      margin-top: 5px;
+      right: 0;
+      background: $font-white;
+      transition: width 0.3s ease, right 0.3s ease;
+    }
+    a:hover::after {
+      width: 100%;
+      right: 0;
+    }
+  }
+  &-lang {
+    margin-left: auto;
+    align-self: flex-end;
+    a {
+      margin: 0 10px;
+    }
+    .active {
+      color: $font-white;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    width: 30%;
+    height: 100%;
+    border-left: 2px solid $primary-color;
+    position: absolute;
+    z-index: 10;
+    right: 0;
+    transition: all 0.3s;
+    flex-direction: column;
+    background: $primary-color;
+    transform: translateX(100%);
+    &-links {
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      a {
+        margin: 20px;
+      }
+    }
+    &-lang {
+      margin: 30px auto;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    width: 50%;
+  }
+}
+.open-icon {
+  display: none;
+}
+@media screen and (max-width: 767px) {
+  .visible {
+    transform: translateX(0);
+  }
+  .open-icon {
+    display: block;
+    margin: 10px;
+    margin-left: auto;
+    color: $secondary-color;
+  }
+}

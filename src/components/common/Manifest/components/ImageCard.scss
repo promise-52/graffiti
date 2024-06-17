@@ -1,0 +1,18 @@
+@import '@/scss/_colors.scss';
+
+.image-card-container {
+  position: relative;
+  p {
+    color: $font-white;
+    font-weight: 800;
+    opacity: .3;
+  }
+  h5 {
+    color: $primary-color;
+    opacity: .5;
+    font-weight: 400;
+    position: absolute;
+    font-size: 60px;
+    top: 120px;
+  }
+}

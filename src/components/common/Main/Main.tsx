@@ -3,13 +3,13 @@ import star from '@/assets/img/star.svg'
 import raboti from '@/assets/img/raboti.svg'
 import { useEffect, useRef, useState } from 'react'
 import useWindowDimensions from '@/hooks/window-dimension'
-import balloon from '@/assets/img/balloon.webm'
+import { Ballon } from '../Ballon/Ballon'
+import i18next from 'i18next'
 
 export function Main() {
   const showsRef = useRef(null)
   const [marginLeft, setMarginLeft] = useState('auto')
-  const { width, height } = useWindowDimensions()
-
+  const { width } = useWindowDimensions()
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -23,29 +23,31 @@ export function Main() {
   }, [width])
 
   return (
-    <div className='main-container'>
-      <div className='main-balloon'>
-        <video autoPlay muted loop src={balloon} className="main-video"/>
+    <>
+      <div className='main-container'>
+        <div className='main-balloon'>
+          <Ballon />
+        </div>
+        <div className='main-text text-heathergreen'>
+          <div className='main-stars-container'>
+            <img src={star} alt="star" />
+            <img src={star} alt="star" />
+            <img src={star} alt="star" />
+          </div>
+          <div style={{}}>
+            { i18next.t('label') }
+          </div>
+          <div style={{marginLeft: 'auto'}} ref={showsRef}>
+            { i18next.t('present') }
+          </div>
+          <div style={{ marginTop: '1rem',}} className='main-jobs-container' >
+            <img src={raboti}  alt="raboti"/>
+          </div>
+          <div style={{marginLeft}}>
+            { i18next.t('here') }
+          </div>
+        </div>
       </div>
-      <div className='main-text text-heathergreen'>
-        <div className='main-stars-container'>
-          <img src={star} alt="star" />
-          <img src={star} alt="star" />
-          <img src={star} alt="star" />
-        </div>
-        <div style={{}}>
-          ЭФФЕКТГРАФФ
-        </div>
-        <div style={{marginLeft: 'auto'}} ref={showsRef}>
-          ПРЕДСТАВЛЯЕТ
-        </div>
-        <div style={{ marginTop: '1rem',}} className='main-jobs-container' >
-          <img src={raboti}  alt="raboti"/>
-        </div>
-        <div style={{marginLeft}}>
-          ЗДЕСЬ
-        </div>
-      </div>
-    </div>
+    </>
   )
 }
