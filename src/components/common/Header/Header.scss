@@ -2,6 +2,14 @@
 @import '@/scss/_font.scss';
 
 .navbar {
+  &-atom {
+    top: 0;
+    position: absolute;
+    width: 10%;
+    max-width: 90px;
+    height: auto;
+    margin: 5px;
+  }
   width: 100%;
   height: fit-content;
   display: flex;
@@ -72,6 +80,9 @@
       margin: 30px auto;
     }
   }
+  @media screen and (max-width: 500px) {
+    width: 50%;
+  }
 }
 .open-icon {
   display: none;
@@ -82,7 +93,7 @@
   }
   .open-icon {
     display: block;
-    margin: 20px;
+    margin: 10px;
     margin-left: auto;
     color: $secondary-color;
   }

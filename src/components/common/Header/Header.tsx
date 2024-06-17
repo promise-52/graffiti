@@ -1,5 +1,6 @@
 import { useState } from "react";
 import './Header.scss';
+import atom from '@/assets/img/atom.png'
 import { faBars, faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import i18next from "i18next";
@@ -20,6 +21,7 @@ export function NavBar({ changeLanguage, lang }: INavBarProps) {
   const [isVisible, setVisible] = useState(false);
   return (
     <>
+      <img src={atom} className="navbar-atom" />
       <div style={{ display: 'flex' }}>
         <FontAwesomeIcon
           icon={!isVisible ? faBars : faChevronLeft}
