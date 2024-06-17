@@ -5,12 +5,14 @@ import "yet-another-react-lightbox/plugins/thumbnails.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import LightGallery from 'lightgallery/react';
-import 'lightgallery/scss/lightgallery.scss';
-import 'lightgallery/scss/lg-zoom.scss';
 import lgThumbnail from 'lightgallery/plugins/thumbnail';
 import lgZoom from 'lightgallery/plugins/zoom';
 import img from '@/assets/img/test.jpg'
 import img2 from '@/assets/img/test2.jpg'
+import 'lightgallery/css/lightgallery.css';
+import 'lightgallery/css/lg-zoom.css';
+import 'lightgallery/css/lg-thumbnail.css';
+
 
 export default forwardRef(
   function GalleryModal(_props: any, ref: any) {
@@ -33,22 +35,6 @@ export default forwardRef(
       }
     })
 
-    useEffect(() => {
-      const handleScroll = () => {
-        console.log('a')
-        console.log(container.current!.scrollTop, container.current!.scrollTop)
-        container.current!.scrollHeight = grid.current!.scrollHeight
-        container.current!.scrollTop = grid.current!.scrollTop
-      };
-      console.dir(container.current)
-      console.dir(grid.current)
-      container.current.addEventListener("scroll", handleScroll);
-
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
-      };
-    }, []);
-
     const onInit = () => {
       console.log('lightGallery has been initialized');
     };
@@ -60,21 +46,74 @@ export default forwardRef(
           size="3x"
           onClick={close}
         />
-        <div className='' ref={grid}>
+        <div className='gallery-modal-grid' ref={grid}>
           <LightGallery
             onInit={onInit}
             speed={500}
             plugins={[lgThumbnail, lgZoom]}
           >
-            <a href="img/img1.jpg">
-              <img alt="img1" src={img} />
+            <a href={img}>
+              <img alt="img1" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img} />
             </a>
-            <a href="img/img2.jpg">
-              <img alt="img2" src={img2} />
+            <a href={img}>
+              <img alt="img2" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img2} />
             </a>
-            ...
+            <a href={img}>
+              <img alt="img1" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img} />
+            </a>
+            <a href={img}>
+              <img alt="img2" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img2} />
+            </a>
+            <a href={img}>
+              <img alt="img1" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img} />
+            </a>
+            <a href={img}>
+              <img alt="img2" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img2} />
+            </a>
+            <a href={img}>
+              <img alt="img1" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img} />
+            </a>
+            <a href={img}>
+              <img alt="img2" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img2} />
+            </a>
+            <a href={img}>
+              <img alt="img1" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img} />
+            </a>
+            <a href={img}>
+              <img alt="img2" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img2} />
+            </a>
+            <a href={img}>
+              <img alt="img1" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img} />
+            </a>
+            <a href={img}>
+              <img alt="img2" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img2} />
+            </a>
+            <a href={img}>
+              <img alt="img1" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img} />
+            </a>
+            <a href={img}>
+              <img alt="img2" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img2} />
+            </a>
+            <a href={img}>
+              <img alt="img1" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img} />
+            </a>
+            <a href={img}>
+              <img alt="img2" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img2} />
+            </a>
+            <a href={img}>
+              <img alt="img1" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img} />
+            </a>
+            <a href={img}>
+              <img alt="img2" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img2} />
+            </a>
+            <a href={img}>
+              <img alt="img1" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img} />
+            </a>
+            <a href={img}>
+              <img alt="img2" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img2} />
+            </a>
           </LightGallery>
+          </div>
         </div>
-      </div>
     );
   })
