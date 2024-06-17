@@ -5,12 +5,29 @@ import img from '@/assets/img/test.jpg'
 import img2 from '@/assets/img/test2.jpg'
 import GalleryModal from "./components/GalleryModal/GalleryModal";
 import gif from '@/assets/img/ballon.gif'
+import { useInView } from 'react-intersection-observer'
+import { Transition } from 'react-transition-group'
+
 export interface Slide {
   location: string
   name: string
   authors: string[]
   imagesUrls: string[]
 }
+
+const duration = 800;
+
+const defaultStyle = {
+  transition: `opacity ${duration}ms ease-in-out`,
+  opacity: 0,
+};
+
+const transitionStyles: any = {
+  entering: { opacity: 1 },
+  entered: { opacity: 1 },
+  exiting: { opacity: 0 },
+  exited: { opacity: 0 },
+};
 
 export default function Gallery() {
   const [activeSlideIndex, setActiveSlideIndex] = useState(0)
@@ -90,17 +107,29 @@ export default function Gallery() {
     }
   ]
 
-  return <>
-    <div className="gallery-title text-heathergreen">
-      ПОРТФОЛИО
-    </div>
-    <div className="gallery-container">
-      
-      <Slider data={slides} />
-      <div className="text-heathergreen" id="geography-title">
-        Наша <br />география
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  return (
+    <>
+      <div className="gallery-title text-heathergreen">
+        ПОРТФОЛИО
       </div>
-    </div>
-    
-  </>
+      <Transition in={inView} timeout={duration}>
+        {state => (
+          <div ref={ref} className="gallery-container" style={{
+            ...defaultStyle,
+            ...transitionStyles[state]
+          }}>
+            <Slider data={slides} />
+            <div className="text-heathergreen" id="geography-title">
+              Наша <br />география
+            </div>
+          </div>
+        )}
+      </Transition>
+    </>
+  );
 }
