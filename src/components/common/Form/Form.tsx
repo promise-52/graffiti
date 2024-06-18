@@ -1,11 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './Form.scss'
 import Input from './components/Input/Input'
 import Agreement from './components/Agreement/Agreement';
 import ConfirmButton from './components/ConfirmButton/ConfirmButton';
 import { faPaperclip } from '@fortawesome/free-solid-svg-icons';
 import mail from './components/Mailer/Mailer.ts';
-import { Ballon } from '../Ballon/Ballon.tsx';
 import i18next from 'i18next';
 import { Atoms } from '../Atoms/Atoms.tsx';
 
