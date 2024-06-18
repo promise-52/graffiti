@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Form.scss'
 import Input from './components/Input/Input'
 import Agreement from './components/Agreement/Agreement';
@@ -36,7 +36,7 @@ export default function Form() {
   const confirmForm = () => {
     mail(formValue)
   }
-
+  
   return (
     <div className="form-container">
       <div className="gallery-title text-heathergreen">

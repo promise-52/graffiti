@@ -12,6 +12,7 @@ import img2 from '@/assets/img/test2.jpg'
 import 'lightgallery/css/lightgallery.css';
 import 'lightgallery/css/lg-zoom.css';
 import 'lightgallery/css/lg-thumbnail.css';
+import FsLightbox from 'fslightbox-react';
 
 
 export default forwardRef(
@@ -19,6 +20,7 @@ export default forwardRef(
     const [index, setIndex] = useState(-1);
     const container = useRef<any>(null)
     const grid = useRef<any>(null)
+    const [toggler, setToggler] = useState(false);
 
     const open = () => {
       container.current.classList.add('gallery-modal-container-opened')
@@ -47,72 +49,18 @@ export default forwardRef(
           onClick={close}
         />
         <div className='gallery-modal-grid' ref={grid}>
-          <LightGallery
-            onInit={onInit}
-            speed={500}
-            plugins={[lgThumbnail, lgZoom]}
-          >
-            <a href={img}>
-              <img alt="img1" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img} />
-            </a>
-            <a href={img}>
-              <img alt="img2" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img2} />
-            </a>
-            <a href={img}>
-              <img alt="img1" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img} />
-            </a>
-            <a href={img}>
-              <img alt="img2" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img2} />
-            </a>
-            <a href={img}>
-              <img alt="img1" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img} />
-            </a>
-            <a href={img}>
-              <img alt="img2" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img2} />
-            </a>
-            <a href={img}>
-              <img alt="img1" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img} />
-            </a>
-            <a href={img}>
-              <img alt="img2" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img2} />
-            </a>
-            <a href={img}>
-              <img alt="img1" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img} />
-            </a>
-            <a href={img}>
-              <img alt="img2" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img2} />
-            </a>
-            <a href={img}>
-              <img alt="img1" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img} />
-            </a>
-            <a href={img}>
-              <img alt="img2" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img2} />
-            </a>
-            <a href={img}>
-              <img alt="img1" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img} />
-            </a>
-            <a href={img}>
-              <img alt="img2" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img2} />
-            </a>
-            <a href={img}>
-              <img alt="img1" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img} />
-            </a>
-            <a href={img}>
-              <img alt="img2" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img2} />
-            </a>
-            <a href={img}>
-              <img alt="img1" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img} />
-            </a>
-            <a href={img}>
-              <img alt="img2" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img2} />
-            </a>
-            <a href={img}>
-              <img alt="img1" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img} />
-            </a>
-            <a href={img}>
-              <img alt="img2" style={{width: '300px', height: '300px', objectFit: 'cover'}} src={img2} />
-            </a>
-          </LightGallery>
+        <button onClick={() => setToggler(!toggler)}>
+				Open the lightbox.
+			</button>
+        <FsLightbox 
+          sourceIndex={2}
+          toggler={toggler}
+          sources={[
+            'https://i.imgur.com/fsyrScY.jpg',
+            'https://www.youtube.com/watch?v=xshEZzpS4CQ',
+            'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
+          ]}
+			/>
           </div>
         </div>
     );

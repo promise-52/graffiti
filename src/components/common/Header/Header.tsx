@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import './Header.scss';
 import atom from '@/assets/img/atom.png'
 import { faBars, faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import i18next from "i18next";
+import { smoothScrollTo, tabs } from "@/utils/smoothScrollTo";
+import { AppContext } from "@/components/App";
 
 interface INavBarProps {
   changeLanguage: (lang: 'en' | 'ru') => void,
@@ -11,13 +13,7 @@ interface INavBarProps {
 }
 
 export function NavBar({ changeLanguage, lang }: INavBarProps) {
-  const tabs = [
-    'manifest',
-    'gallery',
-    'form',
-    'contacts',
-  ];
-
+  const { pageIndex } = useContext(AppContext)
   const [isVisible, setVisible] = useState(false);
   return (
     <>
@@ -34,7 +30,10 @@ export function NavBar({ changeLanguage, lang }: INavBarProps) {
         <div className="navbar-links">
           {
             tabs.map((tab) => 
-              <a href={`#${tab}`}>
+              <a href={`#${tab}`} onClick={() => {
+                smoothScrollTo(window.document.getElementById(tab) as HTMLElement)
+                pageIndex.current = tabs.findIndex((d) => d === tab)
+              }}>
                 { i18next.t(tab) }
               </a>
             )
