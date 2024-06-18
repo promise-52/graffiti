@@ -2,10 +2,8 @@ import "./GalleryModal.scss";
 import {
   forwardRef,
   useContext,
-  useEffect,
   useImperativeHandle,
   useRef,
-  useState,
 } from "react";
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
