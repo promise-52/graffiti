@@ -7,6 +7,7 @@ import { faPaperclip } from '@fortawesome/free-solid-svg-icons';
 import mail from './components/Mailer/Mailer.ts';
 import { Ballon } from '../Ballon/Ballon.tsx';
 import i18next from 'i18next';
+import { Atoms } from '../Atoms/Atoms.tsx';
 
 export interface IForm {
   telephone?: string
@@ -42,7 +43,7 @@ export default function Form() {
       <div className="gallery-title text-heathergreen">
         { i18next.t('form') }
       </div>
-      <Ballon />
+      <Atoms />
       <div className='form text-pptelegraph'>
         <div className='form-header-container'>
           <span className='form-header text-underline'>

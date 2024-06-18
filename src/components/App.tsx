@@ -60,7 +60,6 @@ function App() {
   return (
     <>
       <AppContext.Provider value={{ pageIndex, canScroll }}>
-        {pageIndex.current}
         <div id="main">
           <NavBar lang={i18next.language} changeLanguage={updLang} />
           <Main />

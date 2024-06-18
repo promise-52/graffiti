@@ -30,6 +30,12 @@
       font-weight: 800;
       color: $secondary-color;
     }
+    &-atom {
+      max-width: 90px;
+      min-width: 47px;
+      width: 10%;
+      height: auto;
+    }
   }
   &-links {
     color: $secondary-color;

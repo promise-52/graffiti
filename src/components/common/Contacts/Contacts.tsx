@@ -25,7 +25,7 @@ export function Contacts() {
     <div className='contacts-container'>
       <div className='contacts-container-cover' />
       <div className='contacts-container-header'>
-        <img src={atom} />
+        <img src={atom} className='contacts-container-header-atom' />
         <p className='text-pptelegraph'>
           © 2024
         </p>

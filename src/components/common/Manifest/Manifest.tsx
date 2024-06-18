@@ -6,7 +6,7 @@ import c2 from '@/assets/img/manifest/Rectangle 198.jpg';
 import c3 from '@/assets/img/manifest/Rectangle 200.jpg';
 import c4 from '@/assets/img/manifest/Rectangle 201.jpg';
 import c5 from '@/assets/img/manifest/Rectangle 202.jpg';
-import atom from '@/assets/img/big-atom.png'
+import atom from '@/assets/img/atom.png'
 import { ImageCard } from './components/ImageCard';
 
 export function Manifest() {

@@ -8,13 +8,13 @@
   overflow: hidden;
   video {
     position: absolute;
-    top: 0;
-    left: 100px;
+    top: 50px;
     height: inherit;
     mix-blend-mode: soft-light;
     opacity: .7;
     @media screen and (max-width: 500px) {
-      left: -100px;
+      top: -25%;
+      left: -140px;
     }
   }
 }

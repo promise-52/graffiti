@@ -1,6 +1,7 @@
 import './Main.scss'
 import star from '@/assets/img/star.svg'
-import raboti from '@/assets/img/raboti.svg'
+import worksRu from '@/assets/img/works-ru.png'
+import worksEn from '@/assets/img/works-en.png'
 import { useEffect, useRef, useState } from 'react'
 import useWindowDimensions from '@/hooks/window-dimension'
 import { Ballon } from '../Ballon/Ballon'
@@ -41,7 +42,7 @@ export function Main() {
             { i18next.t('present') }
           </div>
           <div style={{ marginTop: '1rem',}} className='main-jobs-container' >
-            <img src={raboti}  alt="raboti"/>
+            <img src={i18next.language === 'en' ? worksEn : worksRu}  alt="raboti"/>
           </div>
           <div style={{marginLeft}}>
             { i18next.t('here') }

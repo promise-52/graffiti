@@ -14,14 +14,16 @@
 
   &-atom {
     position: absolute;
-    right: -600px;
-    top: -300px;
+    right: -100px;
+    top: -200px;
+    transform: rotate(-27deg);
+    width: 819px;
   }
 
   padding: 15px;
 
   &-left {
-    height: 100%;
+    height: 50%;
     display: flex;
     @media screen and (max-width: 1800px) {
       margin: auto;
@@ -111,9 +113,10 @@
         padding-left: 23%;
       }
       @media screen and (max-width: 420px) {
-        padding-left: 43%;
-        min-width: 100px;
-        width: 170px;
+        padding-top: 65%;
+        padding-left: 37%;
+        min-width: 150px;
+        width: 190px;
         font-size: 12px;
       }
     }
