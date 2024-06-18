@@ -128,7 +128,7 @@ export default function Slider({ data }: SliderProps) {
   console.log(Math.ceil(slidesPerPage / 2))
   return (
     <>
-      <GalleryModal ref={galleryModalRef}/>
+      <GalleryModal ref={galleryModalRef} onImageClick={changeSlide}/>
       <div className='slider-arrows-container'>
         <FontAwesomeIcon className='slider-arrows-item' icon={faArrowLeft} onClick={() => goBack(activeSlideIndex)} />
         <FontAwesomeIcon className='slider-arrows-item' icon={faArrowRight} onClick={() => goForward(activeSlideIndex)} />
@@ -191,7 +191,7 @@ export default function Slider({ data }: SliderProps) {
           style={{ left: ((slideWidth + sliderGap) * (Math.floor(slidesPerPage / 2) - (Number(screenWidth <= 1000))) + sliderGap + sliderGap / 2) }}
         >
           <div className='slider-names-location'>
-            {data[activeSlideIndex].location}
+            {`${data[activeSlideIndex].city}, ${data[activeSlideIndex].country} // ${data[activeSlideIndex].year}`}
           </div>
           <div className='slider-names-title primary-opacity'>
             {data[activeSlideIndex].name}

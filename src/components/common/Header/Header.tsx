@@ -32,7 +32,7 @@ export function NavBar({ changeLanguage, lang }: INavBarProps) {
             tabs.map((tab) => 
               <a href={`#${tab}`} onClick={() => {
                 smoothScrollTo(window.document.getElementById(tab) as HTMLElement)
-                pageIndex.current = tabs.findIndex((d) => d === tab)
+                 pageIndex.current = tabs.findIndex((d) => d === tab)
               }}>
                 { i18next.t(tab) }
               </a>

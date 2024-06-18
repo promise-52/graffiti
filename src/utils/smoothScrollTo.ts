@@ -1,4 +1,4 @@
-export const tabs = ['main', 'manifest', 'gallery', 'form', 'contacts']
+export const tabs = ['main', 'manifest', 'gallery', 'photos', 'form', 'contacts']
 
 export function smoothScrollTo(target: HTMLElement) {
   return new Promise<void>((resolve) => {
