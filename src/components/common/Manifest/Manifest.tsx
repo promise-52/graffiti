@@ -21,7 +21,7 @@ export function Manifest() {
       <div className='manifest-container-left'>
         {
           cards.slice(0, 2).map((src, i) => 
-            <ImageCard src={src} n={i + 1} />
+            <ImageCard album={[src]} n={i + 1} />
           )
         }
       </div>
@@ -29,12 +29,12 @@ export function Manifest() {
         <div className='manifest-container-right-inner'>
           {
             cards.slice(2, 3).map((src, i) => 
-              <ImageCard src={src} n={i + 3} caption='¡Hola!' />
+              <ImageCard album={[src]} n={i + 3} caption='¡Hola!' />
             )
           }
           {
             cards.slice(3, 4).map((src, i) => 
-              <ImageCard src={src} n={i + 4} />
+              <ImageCard album={[src]} n={i + 4} />
             )
           }
           <div className='manifest-container-right-text text-pptelegraph'>
@@ -44,7 +44,7 @@ export function Manifest() {
           </div>
           {
             cards.slice(4).map((src, i) => 
-              <ImageCard src={src} n={i + 5} />
+              <ImageCard album={[src]} n={i + 5} />
             )
           }
         </div>

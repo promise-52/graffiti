@@ -40,6 +40,23 @@ export async function i18nInit() {
             btn: 'поехали',
           },
           meta: '** Meta признана экстремистской и запрещена в России',
+          /* MOMENTS */
+          moments: {
+            header: {
+              1: 'Рисуем и поём,',
+              2: 'наслаждаемся',
+              3: 'жизнью',
+            },
+            first: {
+              1: 'we take grant',
+              2: 'Creating our first mural',
+            },
+            second: {
+              1: 'Taking a team trip',
+              2: 'we',
+              3: 'collaboration'
+            }
+          }
         }
       },
       en: {

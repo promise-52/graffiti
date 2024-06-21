@@ -1,0 +1,59 @@
+@import '@/scss/_colors.scss';
+
+.first-photoblock-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  &-header {
+    margin-top: 64px;
+    margin-left: 50%;
+    font-size: 50px;
+    line-height: 57px;
+    font-weight: 800;
+    @media screen and (max-width: 800px) {
+      margin: auto 0 auto 50%;
+      font-size: 24px;
+      line-height: 22px;
+    }
+  }
+
+  .image-card-container:nth-child(3) {
+    margin-left: 50%;
+    @media screen and (max-width: 800px) {
+      h5 {
+        top: 280px;
+      }
+    }
+  }
+
+  .image-card-container {
+    padding-bottom: 30px;
+    p {
+      opacity: 1;
+    }
+    h5 {
+      color: $font-white;
+      top: 90px;
+      left: 5px;
+      opacity: 1;
+    }
+    @media screen and (max-width: 1200px) {
+      img {
+        width: 149px;
+        height: 149px;
+      }
+    }
+    @media screen and (max-width: 800px) {
+      width: 320px;
+      margin: auto !important;
+      h5 {
+        top: 120px;
+        font-size: 40px;
+      }
+      p {
+        margin: 10px 0;
+      }
+    }
+  }
+}

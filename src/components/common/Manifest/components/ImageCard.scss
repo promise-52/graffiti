@@ -2,6 +2,9 @@
 
 .image-card-container {
   position: relative;
+  img {
+    margin: 5px;
+  }
   p {
     color: $font-white;
     font-weight: 800;

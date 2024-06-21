@@ -1,9 +1,9 @@
 export const tabs = ['main', 'manifest', 'gallery', 'photos', 'form', 'contacts']
 
-export function smoothScrollTo(target: HTMLElement) {
+export function smoothScrollTo(target: HTMLElement, parent: Window | HTMLDivElement = window) {
   return new Promise<void>((resolve) => {
-    const startY = window.scrollY;
-    const targetY = target.getBoundingClientRect().top + window.scrollY - 15;
+    const startY = parent instanceof Window ? parent.scrollY : parent.scrollTop;
+    const targetY = target.getBoundingClientRect().top + startY - 15;
     const distance = targetY - startY;
     const duration = 200; // длительность анимации в миллисекундах
     let startTime: number | null = null;
@@ -12,7 +12,7 @@ export function smoothScrollTo(target: HTMLElement) {
       if (!startTime) startTime = currentTime;
       const timeElapsed = currentTime - startTime;
       const run = ease(timeElapsed, startY, distance, duration);
-      window.scrollTo(0, run);
+      parent.scrollTo(0, run);
       if (timeElapsed < duration) {
         requestAnimationFrame(animateScroll);
       } else {

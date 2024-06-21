@@ -70,13 +70,13 @@ function App() {
         <div className="app-block-container" id="gallery">
           <Gallery />
         </div>
-        <div className="app-block-container" id="photos">
+        <div className="app-block-container glass" id="photos">
           <Photos />
         </div>
         <div className="app-block-container" id="form">
           <Form />
         </div>
-        <div className="app-block-container contacts" id="contacts">
+        <div className="app-block-container glass" id="contacts">
           <Contacts />
         </div>
       </AppContext.Provider>
