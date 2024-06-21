@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
 import i18next from 'i18next'
 import fbRu from '@/assets/img/flashbacks-ru.png'
