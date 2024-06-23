@@ -21,7 +21,7 @@ export function Main() {
       }
     }, 1) // Выполняем через макротаск, чтобы убедиться, что браузер закончил рендеринг
     return () => clearTimeout(timer)
-  }, [width])
+  }, [width, i18next.language])
 
   return (
     <>

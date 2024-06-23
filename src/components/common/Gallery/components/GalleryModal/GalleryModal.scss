@@ -12,9 +12,18 @@
     padding: 5rem;
     box-sizing: border-box;
     visibility: hidden;
+    opacity: 0;
+    overflow: auto;
+    transition:visibility 0.1s linear,opacity 0.1s linear;
     &-opened {
       visibility: visible;
+      opacity: 1;
+
     }
+    @media screen and (max-width: 600px) {
+      padding: 3rem;
+    }
+
   }
   &-grid {
     width: 100%;
@@ -24,12 +33,24 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 0.5rem;
+    @media screen and (max-width: 1500px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media screen and (max-width: 800px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media screen and (max-width: 600px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
   &-exit {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: 0.5rem;
+    right: 0.5rem;
     cursor: pointer;
+    @media screen and (max-width: 600px) {
+      font-size: 2rem;
+    }
   }
   &-img-container {
     position: relative;
