@@ -12,6 +12,7 @@ export default function Photos() {
   const container = useRef<HTMLDivElement>(null);
   const isFirst = useRef(true);
   const handleScroll = async (e: WheelEvent) => {
+    console.log
     e.preventDefault();
     let elemTo = null;
     if (e.deltaY > 0 && isFirst.current) {
@@ -28,6 +29,7 @@ export default function Photos() {
     }
   };
   useEffect(() => {
+    smoothScrollTo(document.getElementById('photos-container-first')!, container.current!).then(() => console.log('ss'));
     container.current?.addEventListener("wheel", (e) => handleScroll(e), { passive: false });
     return () => {
       container.current?.removeEventListener("wheel", (e) => handleScroll(e));

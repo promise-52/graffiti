@@ -68,7 +68,6 @@ export default function Slider({ data }: SliderProps) {
       oldActiveSlide.parentElement?.classList.remove('slider-item-container-active')
     }
 
-    console.log('width', width)
     slides.current = [...s]
     const index = Math.ceil(slidesPerPage / 2);
     setActiveSlideIndex(index);
@@ -115,17 +114,14 @@ export default function Slider({ data }: SliderProps) {
       sliderInit()
     }
 
-    console.log(width)
   }, [width])
 
   useEffect(() => {
-    console.log(galleryTitle.current)
     galleryTitle.current?.classList.remove('slider-names-container')
     void galleryTitle.current?.offsetWidth
     galleryTitle.current?.classList.add('slider-names-container');
   }, [activeSlideIndex])
 
-  console.log(Math.ceil(slidesPerPage / 2))
   return (
     <>
       <GalleryModal ref={galleryModalRef} onImageClick={changeSlide}/>

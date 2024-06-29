@@ -21,7 +21,6 @@ function App() {
   const isAnimating = useRef(false);
 
   const handleScroll = async (e: WheelEvent) => {
-    console.log(canScroll.current);
     if (!canScroll.current) {
       e.preventDefault();
       return;
@@ -43,7 +42,9 @@ function App() {
   };
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    smoothScrollTo(document.getElementById('main')!); // ждем завершения анимации
+    
+    //window.scrollTo(0, 0);
     window.addEventListener("wheel", handleScroll, { passive: false });
     return () => {
       window.removeEventListener("wheel", handleScroll);

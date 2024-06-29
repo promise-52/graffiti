@@ -11,8 +11,10 @@ export async function i18nInit() {
           present: 'ПРЕДСТАВЛЯЕТ',
           here: 'ЗДЕСЬ',
           /* navbar */
+          main: 'главная',
           manifest: 'манифест',
           gallery: 'портфолио',
+          photos: 'фотографии',
           form: 'заявка',
           contacts: 'контакты',
           /* manifest */
@@ -65,6 +67,8 @@ export async function i18nInit() {
           present: 'PRESENT',
           here: 'HERE',
           /* navbar */
+          main: 'title',
+          photos: 'photos',
           manifest: 'manifest',
           gallery: 'gallery',
           form: 'form',

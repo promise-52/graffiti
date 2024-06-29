@@ -1,6 +1,6 @@
 export const tabs = ['main', 'manifest', 'gallery', 'photos', 'form', 'contacts']
 
-export function smoothScrollTo(target: HTMLElement, parent: Window | HTMLDivElement = window) {
+export function smoothScrollTo(target: HTMLElement, parent: Window | HTMLElement = window) {
   return new Promise<void>((resolve) => {
     const startY = parent instanceof Window ? parent.scrollY : parent.scrollTop;
     const targetY = target.getBoundingClientRect().top + startY - 15;

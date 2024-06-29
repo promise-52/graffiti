@@ -16,7 +16,6 @@ export function Main() {
     const timer = setTimeout(() => {
       if (showsRef.current && width > 400) {
         const computedStyle = window.getComputedStyle(showsRef.current)
-        console.log(computedStyle.marginLeft) 
         setMarginLeft(computedStyle.marginLeft)
       }
     }, 1) // Выполняем через макротаск, чтобы убедиться, что браузер закончил рендеринг

@@ -46,7 +46,6 @@ export default forwardRef(function GalleryModal({onImageClick}: GalleryModalProp
     event: React.MouseEvent<HTMLDivElement, MouseEvent>,
     type: "hidden" | "visible"
   ) => {
-    console.log(type);
     (event.currentTarget.children[0] as any).style.visibility = type;
   };
 
