@@ -2,12 +2,14 @@
 
 @font-face {
   font-family: 'Heathergreen';
-  src: url(../assets/fonts/Heathergreen.otf) format('opentype');
+  src: url(../assets/fonts/Heathergreen.otf) format('opentype'),
+  url(../assets/fonts/Heathergreen.woff2) format('woff2');
 }
 
 @font-face {
   font-family: 'PP Telegraph';
-  src: url(../assets/fonts/PPTelegraf-Regular.otf) format('opentype');
+  src: url(../assets/fonts/PPTelegraf-Regular.otf) format('opentype'),
+  url(../assets/fonts/PPTelegraf-Regular.woff2) format('woff2');
 }
 
 .text-white {
