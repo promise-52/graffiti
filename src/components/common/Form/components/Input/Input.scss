@@ -1,6 +1,10 @@
 @import '@/scss/_colors.scss';
 @import '@/scss/_font.scss';
 
+input::-webkit-input-placeholder, input::-moz-placeholder, input::-ms-placeholder, input::-ms-placeholder, input::placeholder {
+  color: $font-white;
+}
+
 .input {
   height: 70px;
   
