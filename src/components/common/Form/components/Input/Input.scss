@@ -1,7 +1,19 @@
 @import '@/scss/_colors.scss';
 @import '@/scss/_font.scss';
 
-input::-webkit-input-placeholder, input::-moz-placeholder, input::-ms-placeholder, input::-ms-placeholder, input::placeholder {
+::-webkit-input-placeholder {
+  color: $font-white;
+}
+
+::-moz-placeholder {
+  color: $font-white;
+}
+
+::-ms-placeholder {
+  color: $font-white;
+}
+
+::placeholder {
   color: $font-white;
 }
 
